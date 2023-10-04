@@ -12,6 +12,15 @@ code {
     monospace;
 }
 
+::placeholder {
+  color: rgb(0, 0, 0);
+  opacity: 1; /* Firefox */
+}
+
+::-ms-input-placeholder { /* Edge 12-18 */
+  color: rgb(0, 0, 0);
+}
+
 
 /* Small devices (landscape phones) */
 @media (max-width: 576px) {

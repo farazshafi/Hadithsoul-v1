@@ -1,18 +1,10 @@
-import { Box } from '@chakra-ui/react'
 import React from 'react'
-// import homeImg from "../images/bismillah.png"
+import HomePageInput from '../components/HomePageInput'
 
 const HomePage = () => {
   return (
     <>
-    Header
-      {/* <Box
-      top={0}
-      height={"519px"}
-      bgImage={homeImg}
-      >
-      Hello
-      </Box> */}
+      <HomePageInput />
     </>
   )
 }
