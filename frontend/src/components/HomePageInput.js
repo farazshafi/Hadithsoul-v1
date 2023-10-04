@@ -12,7 +12,6 @@ const HomePageInput = () => {
     return (
         <>
             <Box
-                // height={"519px"}
                 bgImage={HomeBackgroundImg}
                 backgroundSize={"cover"}
                 // backgroundAttachment={"fixed"}
