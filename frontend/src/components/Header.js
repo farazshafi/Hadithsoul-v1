@@ -1,7 +1,7 @@
 import React from 'react'
 import { Box, Text, Wrap, WrapItem } from "@chakra-ui/react"
-import { SearchIcon, SunIcon } from "@chakra-ui/icons"
-import { Avatar, AvatarBadge, AvatarGroup } from '@chakra-ui/react'
+import { HamburgerIcon, SearchIcon, SunIcon } from "@chakra-ui/icons"
+import { Avatar} from '@chakra-ui/react'
 
 const Header = () => {
   return (
@@ -11,20 +11,25 @@ const Header = () => {
           bg={'#242424'}
           height={"65px"}
           display={"flex"}
-          pl={{ base: "15px", md: "50px", lg: "50px" }}
-          pr={{ base: "15px", md: "50px", lg: "50px" }}
+          pl={{ base: "20px", md: "40px", lg: "40px" }}
+          pr={{ base: "20px", md: "40px", lg: "40px" }}
           pt={17}
         >
+          <HamburgerIcon
+          color={"white"}
+          boxSize={7}
+          />
           <Text
             fontFamily={"Istok Web"}
             fontWeight={700}
             fontSize={"20px"}
             width={'auto'}
             color={"white"}
+            ml={"10px"}
           >Quranicsoul</Text>
           {/* ToggleColorMode */}
           <Box
-          ml={"auto"}
+            ml={"auto"}
           >
             {/* <SunIcon
               ml={"auto"}

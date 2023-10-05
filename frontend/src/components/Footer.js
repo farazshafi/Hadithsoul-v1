@@ -6,11 +6,14 @@ import { Container, Row, Col } from 'react-bootstrap'
 const Footer = () => {
   return (
     <>
-      <footer className=' fixed-bottom ' style={{ backgroundColor: "black", paddingTop: "26px", paddingBottom: "26", paddingLeft: "60px", paddingRight: "60px" }}>
-        <Container fluid>
+      <footer className='' style={{ backgroundColor: "black", paddingTop: "26px", paddingBottom: "26", paddingLeft: "60px", paddingRight: "60px" }}>
+        <Box
+        pl={{base:"px",md:"50",lg:"60px"}}
+        pr={{base:"px",md:"50",lg:"60px"}}
+        >
           <Row>
             {/* About */}
-            <Col sm={12} md={6}>
+            <Col md={6}>
               <Box>
                 <Text
                   fontFamily={"Istok Web"}
@@ -37,166 +40,172 @@ const Footer = () => {
               </Box>
             </Col>
             {/* Links */}
-            <Col sm={12} md={6}>
-              <Box
+            <Col md={6}>
+              <Box className='flex-row-reverse'
                 display={"flex"}
                 mt={"10px"}
-                ml={"auto"}
+                pl={{ base: "0px", md: "0px", lg: "20px" }}
               >
                 <Row>
-
                   {/* NAVIGATION */}
-                  <Col sm={6} md={4}>
-                    <Text
-                      color={"white"}
-                      fontFamily={"Istok Web"}
-                      fontSize={{ base: "11px", md: "15px", lg: '18px' }}
-                      fontWeight={700}
-                    >
-                      NAVIGATION
-                    </Text>
-                    <Text
-                      fontFamily={"Istok Web"}
-                      color={"white"}
-                      fontSize={{ base: "9px", md: "12", lg: "15px" }} fontWeight={400}
-                    >
-                      Home
-                    </Text>
-                    <Text
-                      fontFamily={"Istok Web"}
-                      color={"white"}
-                      fontSize={{ base: "9px", md: "12", lg: "15px" }} fontWeight={400}
-                    >
-                      Home
-                    </Text>
-                    <Text
-                      fontFamily={"Istok Web"}
-                      color={"white"}
-                      fontSize={{ base: "9px", md: "12", lg: "15px" }} fontWeight={400}
-                    >
-                      Home
-                    </Text>
-                    <Text
-                      fontFamily={"Istok Web"}
-                      color={"white"}
-                      fontSize={"15px"}
-                      fontWeight={400}
-                    >
-                      Home
-                    </Text>
+                  <Col xs={6} sm={6} md={4}>
+                    <Box>
+                      <Text
+                        color={"white"}
+                        fontFamily={"Istok Web"}
+                        fontSize={{ base: "15px", md: "18px", lg: '20px' }}
+                        fontWeight={700}
+                      >
+                        NAVIGATION
+                      </Text>
+                      <Text
+                        fontFamily={"Inter"}
+                        color={"white"}
+                        fontSize={{ base: "13px", md: "15px", lg: "15px" }} fontWeight={400}
+                      >
+                        Home
+                      </Text>
+                      <Text
+                        fontFamily={"Inter"}
+                        color={"white"}
+                        fontSize={{ base: "13px", md: "15px", lg: "15px" }} fontWeight={400}
+                      >
+                        Home
+                      </Text>
+                      <Text
+                        fontFamily={"Inter"}
+                        color={"white"}
+                        fontSize={{ base: "13px", md: "15px", lg: "15px" }} fontWeight={400}
+                      >
+                        Home
+                      </Text>
+                      <Text
+                        fontFamily={"Inter"}
+                        color={"white"}
+                        fontSize={{ base: "13px", md: "15px", lg: "15px" }} fontWeight={400}
+                      >
+                        Home
+                      </Text>
+                    </Box>
+
                   </Col>
 
                   {/* NETWORK */}
-                  <Col sm={6} md={4}>
-                    <Text
-                      fontFamily={"Istok Web"}
-                      fontSize={{ base: "11px", md: "15px", lg: '18px' }}
-                      fontWeight={700}
-                      color={"white"}
-                    >
-                      NETWORK
-                    </Text>
-                    <Text
-                      fontFamily={"Istok Web"}
-                      fontSize={{ base: "9px", md: "12", lg: "15px" }} fontWeight={400}
-                      color={"white"}
-                    >
-                      Instagram
-                    </Text>
-                    <Text
-                      fontFamily={"Istok Web"}
-                      fontSize={{ base: "9px", md: "12", lg: "15px" }} fontWeight={400}
-                      color={"white"}
-                    >
-                      Facebook
-                    </Text>
-                    <Text
-                      fontFamily={"Istok Web"}
-                      fontSize={{ base: "9px", md: "12", lg: "15px" }} fontWeight={400}
-                      color={"white"}
-                    >
-                      Whatsapp
-                    </Text>
-                    <Text
-                      fontFamily={"Istok Web"}
-                      fontSize={{ base: "9px", md: "12", lg: "15px" }} fontWeight={400}
-                      color={"white"}
-                    >
-                      Youtube
-                    </Text>
+                  <Col xs={6} sm={6} md={4}>
+                    <Box>
+                      <Text
+                        fontFamily={"Istok Web"}
+                        fontSize={{ base: "18px", md: "15px", lg: '20px' }}
+                        fontWeight={700}
+                        width={"100px"}
+                        color={"white"}
+                      >
+                        NETWORK
+                      </Text>
+                      <Text
+                        fontFamily={"Inter"}
+                        fontSize={{ base: "13px", md: "15px", lg: "15px" }} fontWeight={400}
+                        color={"white"}
+                      >
+                        Instagram
+                      </Text>
+                      <Text
+                        fontFamily={"Inter"}
+                        fontSize={{ base: "13px", md: "15px", lg: "15px" }} fontWeight={400}
+                        color={"white"}
+                      >
+                        Facebook
+                      </Text>
+                      <Text
+                        fontFamily={"Inter"}
+                        fontSize={{ base: "13px", md: "15px", lg: "15px" }} fontWeight={400}
+                        color={"white"}
+                      >
+                        Whatsapp
+                      </Text>
+                      <Text
+                        fontFamily={"Inter"}
+                        fontSize={{ base: "13px", md: "15px", lg: "15px" }} fontWeight={400}
+                        color={"white"}
+                      >
+                        Youtube
+                      </Text>
+                    </Box>
                   </Col>
 
                   {/* COLLECTIONS */}
-                  <Col sm={12} md={4}>
-                    <Text
-                      fontFamily={"Istok Web"}
-                      fontSize={{ base: "11px", md: "15px", lg: '18px' }}
-                      color={"white"}
-                      width={"130px"}
-                      fontWeight={700}
-                    >
-                      COLLECTIONS
-                    </Text>
-                    <Text
-                      fontFamily={"Istok Web"}
-                      fontSize={{ base: "9px", md: "12", lg: "15px" }}
-                      color={"white"} fontWeight={400}
-                      width={"130px"}
-                    >
-                      Sahih al-Bukhari
-                    </Text>
-                    <Text
-                      fontFamily={"Istok Web"}
-                      fontSize={{ base: "9px", md: "12", lg: "15px" }}
-                      color={"white"}
-                      fontWeight={400}
-                      width={"130px"}
-                    >
-                      Sahih al-Bukhari
-                    </Text>
-                    <Text
-                      fontFamily={"Istok Web"}
-                      fontSize={{ base: "9px", md: "12", lg: "15px" }}
-                      color={"white"}
-                      fontWeight={400}
-                      width={"130px"}
-                    >
-                      Sahih al-Bukhari
-                    </Text>
-                    <Text
-                      fontFamily={"Istok Web"}
-                      fontSize={{ base: "9px", md: "12", lg: "15px" }}
-                      color={"white"}
-                      fontWeight={400}
-                      width={"130px"}
-                    >
-                      Sahih al-Bukhari
-                    </Text>
-                    <Text
-                      fontFamily={"Istok Web"}
-                      fontSize={{ base: "9px", md: "12", lg: "15px" }}
-                      color={"white"}
-                      fontWeight={400}
-                      width={"130px"}
-                    >
-                      Sahih al-Bukhari
-                    </Text>
-                    <Text
-                      fontFamily={"Istok Web"}
-                      fontSize={{ base: "9px", md: "12", lg: "15px" }}
-                      fontWeight={400}
-                      width={"130px"}
-                      color={"white"}
-                    >
-                      Sahih al-Bukhari
-                    </Text>
+                  <Col xs={12} sm={12} md={4}>
+                    <Box>
+                      <Text
+                        fontFamily={"Inter"}
+                        fontSize={{ base: "15px", md: "18px", lg: '20px' }}
+                        color={"white"}
+                        width={"150px"}
+                        fontWeight={700}
+                      >
+                        COLLECTIONS
+                      </Text>
+                      <Text
+                        fontFamily={"Inter"}
+                        fontSize={{ base: "13px", md: "15", lg: "15px" }}
+                        color={"white"} fontWeight={400}
+                        width={"130px"}
+                      >
+                        Sahih al-Bukhari
+                      </Text>
+                      <Text
+                        fontFamily={"Inter"}
+                        fontSize={{ base: "13px", md: "15px", lg: "15px" }}
+                        color={"white"}
+                        fontWeight={400}
+                        width={"130px"}
+                      >
+                        Sahih al-Bukhari
+                      </Text>
+                      <Text
+                        fontFamily={"Inter"}
+                        fontSize={{ base: "13px", md: "15px", lg: "15px" }}
+                        color={"white"}
+                        fontWeight={400}
+                        width={"130px"}
+                      >
+                        Sahih al-Bukhari
+                      </Text>
+                      <Text
+                        fontFamily={"Inter"}
+                        fontSize={{ base: "13px", md: "15px", lg: "15px" }}
+                        color={"white"}
+                        fontWeight={400}
+                        width={"130px"}
+                      >
+                        Sahih al-Bukhari
+                      </Text>
+                      <Text
+                        fontFamily={"Inter"}
+                        fontSize={{ base: "13px", md: "15px", lg: "15px" }}
+                        color={"white"}
+                        fontWeight={400}
+                        width={"130px"}
+                      >
+                        Sahih al-Bukhari
+                      </Text>
+                      <Text
+                        fontFamily={"Inter"}
+                        fontSize={{ base: "13px", md: "15px", lg: "15px" }}
+                        fontWeight={400}
+                        width={"130px"}
+                        color={"white"}
+                      >
+                        Sahih al-Bukhari
+                      </Text>
+                    </Box>
                   </Col>
 
                 </Row>
               </Box>
             </Col>
           </Row>
-        </Container>
+        </Box>
       </footer>
     </>
   )
