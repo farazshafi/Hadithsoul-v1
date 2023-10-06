@@ -5,8 +5,6 @@ import {
     Input
 } from '@chakra-ui/react'
 import HomeBackgroundImg from "../images/bismillah.png"
-import { ArrowForwardIcon } from '@chakra-ui/icons'
-import { color } from 'framer-motion'
 
 
 const HomePageInput = () => {
