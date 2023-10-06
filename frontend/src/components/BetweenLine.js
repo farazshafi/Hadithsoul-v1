@@ -6,8 +6,8 @@ const BetweenLine = () => {
     return (
         <>
             <Box
-                pt={{base:"30px",md:"40px",lg:"50px"}}
-                pb={{base:"30px",md:"40px",lg:"50px"}}
+                pt={{base:"20px",md:"40px",lg:"50px"}}
+                pb={{base:"20px",md:"40px",lg:"50px"}}
                 pl={{ base: "27px", md: "50px", lg: "92px" }}
                 pr={{ base: "27px", md: "50px", lg: "92px" }}
                 bg={"#1F2125"}

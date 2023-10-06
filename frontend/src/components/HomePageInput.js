@@ -6,6 +6,7 @@ import {
 } from '@chakra-ui/react'
 import HomeBackgroundImg from "../images/bismillah.png"
 import { ArrowForwardIcon } from '@chakra-ui/icons'
+import { color } from 'framer-motion'
 
 
 const HomePageInput = () => {
@@ -26,10 +27,10 @@ const HomePageInput = () => {
                 <FormControl>
                     <Input
                         // width={"818px"}
-                        color={"black"}
+                        color={"blackAlpha.300"}
                         bgColor={"#D9D9D9"}
                         placeholder={"What do you want to read ?"}
-                        _placeholder={{ color: 'black' }}
+                        _placeholder={{color:"black"}}
                         type='text'
                     />
                 </FormControl>

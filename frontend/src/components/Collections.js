@@ -1,16 +1,18 @@
 import { Box, Text, Button } from '@chakra-ui/react'
 import React from 'react'
 import { Row, Col, Container, } from 'react-bootstrap'
+import { useNavigate } from 'react-router-dom'
 
 const Collections = () => {
+
+    const navigate = useNavigate()
+
     return (
         <>
             <Box
-                // pt={"50px"}
-                pl={{ base: "27px", md: "50px", lg: "92px" }}
-                pr={{ base: "27px", md: "50px", lg: "92px" }}
+                pl={{ base: "35px", md: "50px", lg: "92px" }}
+                pr={{ base: "35px", md: "50px", lg: "92px" }}
                 bg={"#1F2125"}
-                // pb={"30px"}
             >
                 <Text
                     fontFamily={"Inter"}
@@ -24,6 +26,7 @@ const Collections = () => {
                 <Row>
                     <Col sm={6} md={4}>
                         <Button
+                            onClick={() => navigate("/collections/bukhari")}
                             mt={"15px"}
                             width={"100%"}
                             color={"blackAlpha.800"}
@@ -35,6 +38,7 @@ const Collections = () => {
                     </Col>
                     <Col sm={6} md={4}>
                         <Button
+                            onClick={() => navigate("/collections/bukhari")}
                             mt={"15px"}
                             width={"100%"}
                             color={"blackAlpha.800"}
@@ -46,6 +50,7 @@ const Collections = () => {
                     </Col>
                     <Col sm={6} md={4}>
                         <Button
+                            onClick={() => navigate("/collections/bukhari")}
                             mt={"15px"}
                             width={"100%"}
                             color={"blackAlpha.800"}
@@ -57,6 +62,7 @@ const Collections = () => {
                     </Col>
                     <Col sm={6} md={4}>
                         <Button
+                            onClick={() => navigate("/collections/bukhari")}
                             mt={"15px"}
                             width={"100%"}
                             color={"blackAlpha.800"}
@@ -68,6 +74,7 @@ const Collections = () => {
                     </Col>
                     <Col sm={6} md={4}>
                         <Button
+                            onClick={() => navigate("/collections/bukhari")}
                             mt={"15px"}
                             width={"100%"}
                             color={"blackAlpha.800"}
@@ -77,9 +84,21 @@ const Collections = () => {
                             sahih al-bukhari
                         </Button>
                     </Col>
+                    <Col sm={6} md={4}>
+                        <Button
+                            onClick={() => navigate("/collections/bukhari")}
+                            mt={"15px"}
+                            width={"100%"}
+                            color={"blackAlpha.800"}
+                            bgColor={"#D9D9D9"}
+                            variant={"solid"}
+                        >
+                            sahih al-bukhari
+                        </Button>
+                    </Col>
+                    
                 </Row>
             </Box>
-
         </>
     )
 }

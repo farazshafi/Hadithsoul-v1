@@ -21,6 +21,7 @@ const OtherHadith = () => {
                     Forty Hadith Qudsi
                 </Text>
                 <Button
+                size={{base:"sm",md:"md",lg:"lg"}}
                     color={"blackAlpha.800"}
                     bgColor={"#D9D9D9"}
                     variant={"solid"}
