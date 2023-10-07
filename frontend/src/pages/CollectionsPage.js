@@ -10,7 +10,7 @@ import ShortProfileImam from '../components/ShortProfileImam'
 const CollectionsPage = () => {
     return (
         <>
-            <GoBackBtn />
+            <GoBackBtn page={"Home"} />
             <ShortProfileImam profilePage={false} />
             <BetweenLine />
             <AboutBook />

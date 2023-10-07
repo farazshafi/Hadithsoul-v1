@@ -2,9 +2,9 @@ import { Box, Button, Text } from '@chakra-ui/react'
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 
-const GoBackBtn = () => {
+const GoBackBtn = ({ page }) => {
 
-const navigate = useNavigate()
+    const navigate = useNavigate()
 
     return (
         <>
@@ -15,7 +15,13 @@ const navigate = useNavigate()
                 bg={"#1F2125"}
             >
                 <Button
-                    onClick={()=>navigate("/")}
+                    onClick={() => {
+                        {
+                            page === "About" && navigate("/collections/bukhari")
+                            page === "Hadith" && navigate("/collections/bukhari")
+                            page === "Home" && navigate("/")
+                        }
+                    }}
                     size={{ base: "sm", md: "md", lg: "lg" }}
                     bg={"white"}
                     color={"black"}
