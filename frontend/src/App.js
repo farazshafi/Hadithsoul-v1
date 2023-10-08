@@ -6,6 +6,7 @@ import Footer from "./components/Footer"
 import CollectionsPage from "./pages/CollectionsPage";
 import AboutImamPage from "./pages/AboutImamPage";
 import HadithPage from "./components/HadithPage";
+import AboutPage from "./pages/AboutPage";
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
         <Route path='/collections/:name?' element={<CollectionsPage />} />
         <Route path='/collections/:name?/about' element={<AboutImamPage />} />
         <Route path='/collections/:name?/book/:number?' element={<HadithPage />} />
+        <Route path='/about' element={<AboutPage />} />
       </Routes>
       <Footer />
     </div>

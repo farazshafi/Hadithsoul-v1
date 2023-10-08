@@ -64,7 +64,7 @@ const MoreDrawer = () => {
                             pb={"3px"}
                             mb={"10px"}
                         >
-                            <Link display={"flex"} href='/  '>
+                            <Link display={"flex"} href='/'>
                                 <i style={{ marginTop: "3px", }} class="fa-solid fa-house "></i>
                                 <Text
                                     fontFamily={"Istok Web"}
@@ -104,7 +104,7 @@ const MoreDrawer = () => {
                             pb={"3px"}
                             mb={"10px"}
                         >
-                            <Link display={"flex"} href='#about'>
+                            <Link display={"flex"} href='/about'>
                                 <i style={{ marginTop: "3px", }} class="fa-solid fa-circle-info "></i>
                                 <Text
                                     fontFamily={"Istok Web"}
