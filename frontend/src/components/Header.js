@@ -1,7 +1,9 @@
 import React from 'react'
 import { Box, Text, Wrap, WrapItem } from "@chakra-ui/react"
 import { HamburgerIcon, SearchIcon, SunIcon } from "@chakra-ui/icons"
-import { Avatar} from '@chakra-ui/react'
+import { Avatar } from '@chakra-ui/react'
+import SearchDrawer from './SearchDrawer'
+import MoreDrawer from './MoreDrawer'
 
 const Header = () => {
   return (
@@ -15,10 +17,7 @@ const Header = () => {
           pr={{ base: "20px", md: "40px", lg: "40px" }}
           pt={17}
         >
-          <HamburgerIcon
-          color={"white"}
-          boxSize={7}
-          />
+          <MoreDrawer />
           <Text
             fontFamily={"Istok Web"}
             fontWeight={700}
@@ -40,7 +39,7 @@ const Header = () => {
 
 
           {/* Avatar */}
-          <Box
+          {/* <Box
             ml={{ base: "17px", md: "23px", lg: "25px" }}
           >
             <Wrap>
@@ -50,13 +49,13 @@ const Header = () => {
                   name='Dan Abrahmov' src='https://bit.ly/dan-abramov' />
               </WrapItem>
             </Wrap>
-          </Box>
+          </Box> */}
           {/* search btn */}
-          <SearchIcon
+          <Box
             ml={{ base: "17px", md: "23px", lg: "25px" }}
-            color={"white"}
-            boxSize={8}
-          />
+          >
+            <SearchDrawer />
+          </Box>
         </Box>
       </header>
     </>

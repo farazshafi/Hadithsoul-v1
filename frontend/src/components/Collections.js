@@ -10,6 +10,7 @@ const Collections = () => {
     return (
         <>
             <Box
+                id='collection'
                 pl={{ base: "35px", md: "50px", lg: "92px" }}
                 pr={{ base: "35px", md: "50px", lg: "92px" }}
                 bg={"#1F2125"}
@@ -96,7 +97,7 @@ const Collections = () => {
                             sahih al-bukhari
                         </Button>
                     </Col>
-                    
+
                 </Row>
             </Box>
         </>

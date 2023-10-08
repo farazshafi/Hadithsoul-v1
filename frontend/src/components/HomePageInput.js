@@ -13,6 +13,7 @@ const HomePageInput = () => {
             <Box
                 bgImage={HomeBackgroundImg}
                 backgroundSize={"cover"}
+                id="home"
                 // backgroundAttachment={"fixed"}
                 backgroundPosition={"center"}
                 backgroundRepeat={"no-repeat"}
