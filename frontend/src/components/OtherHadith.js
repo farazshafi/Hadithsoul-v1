@@ -6,7 +6,7 @@ const OtherHadith = ({directcall}) => {
     return (
         <>
             <Box
-                pt={"50px"}
+                pt={directcall ? "10px" : "50px"}
                 pl={{ base: "27px", md: "50px", lg: "92px" }}
                 pr={{ base: "27px", md: "50px", lg: "92px" }}
                 bg={"#1F2125"}

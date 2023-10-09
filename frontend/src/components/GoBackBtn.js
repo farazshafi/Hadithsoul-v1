@@ -20,6 +20,7 @@ const GoBackBtn = ({ page }) => {
                             page === "AboutImam" && navigate("/collections/bukhari")
                             page === "Hadith" && navigate("/collections/bukhari")
                             page === "Help" && navigate("/")
+                            page === "Collections" && navigate("/")
                             page === "About" && navigate("/")
                             page === "Home" && navigate("/")
                         }

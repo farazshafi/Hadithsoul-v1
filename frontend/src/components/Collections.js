@@ -3,16 +3,22 @@ import React from 'react'
 import { Row, Col, Container, } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'
 import OtherHadith from './OtherHadith'
+import BetweenLine from './BetweenLine'
+import GoBackBtn from './GoBackBtn'
+const Collections = ({ directcall }) => {
 
-const Collections = ({directcall}) => {
 
     const navigate = useNavigate()
 
     return (
         <>
-        {directcall && (
-            <OtherHadith directcall={true} />
-        )}
+            {directcall && (
+                <>
+                    <GoBackBtn page={"Collections"} />
+                    <OtherHadith directcall={true} />
+                    <BetweenLine />
+                </>
+            )}
             <Box
                 id='collection'
                 pl={{ base: "35px", md: "50px", lg: "92px" }}
@@ -30,81 +36,24 @@ const Collections = ({directcall}) => {
                     SIX MOST AUTHENTIC COLLECTIONS OF AHADITH
                 </Text>
                 <Row>
-                    <Col sm={6} md={4}>
-                        <Button
-                            onClick={() => navigate("/collections/bukhari")}
-                            mt={"15px"}
-                            width={"100%"}
-                            color={"blackAlpha.800"}
-                            bgColor={"#D9D9D9"}
-                            variant={"solid"}
-                        >
-                            sahih al-bukhari
-                        </Button>
-                    </Col>
-                    <Col sm={6} md={4}>
-                        <Button
-                            onClick={() => navigate("/collections/bukhari")}
-                            mt={"15px"}
-                            width={"100%"}
-                            color={"blackAlpha.800"}
-                            bgColor={"#D9D9D9"}
-                            variant={"solid"}
-                        >
-                            sahih al-bukhari
-                        </Button>
-                    </Col>
-                    <Col sm={6} md={4}>
-                        <Button
-                            onClick={() => navigate("/collections/bukhari")}
-                            mt={"15px"}
-                            width={"100%"}
-                            color={"blackAlpha.800"}
-                            bgColor={"#D9D9D9"}
-                            variant={"solid"}
-                        >
-                            sahih al-bukhari
-                        </Button>
-                    </Col>
-                    <Col sm={6} md={4}>
-                        <Button
-                            onClick={() => navigate("/collections/bukhari")}
-                            mt={"15px"}
-                            width={"100%"}
-                            color={"blackAlpha.800"}
-                            bgColor={"#D9D9D9"}
-                            variant={"solid"}
-                        >
-                            sahih al-bukhari
-                        </Button>
-                    </Col>
-                    <Col sm={6} md={4}>
-                        <Button
-                            onClick={() => navigate("/collections/bukhari")}
-                            mt={"15px"}
-                            width={"100%"}
-                            color={"blackAlpha.800"}
-                            bgColor={"#D9D9D9"}
-                            variant={"solid"}
-                        >
-                            sahih al-bukhari
-                        </Button>
-                    </Col>
-                    <Col sm={6} md={4}>
-                        <Button
-                            onClick={() => navigate("/collections/bukhari")}
-                            mt={"15px"}
-                            width={"100%"}
-                            color={"blackAlpha.800"}
-                            bgColor={"#D9D9D9"}
-                            variant={"solid"}
-                        >
-                            sahih al-bukhari
-                        </Button>
-                    </Col>
 
+                    {/* <Col sm={6} md={4}>
+                        <Button
+                            onClick={() => navigate("/collections/bukhari")}
+                            mt={"15px"}
+                            width={"100%"}
+                            color={"blackAlpha.800"}
+                            bgColor={"#D9D9D9"}
+                            variant={"solid"}
+                        >
+                            sahih al-bukhari
+                        </Button>
+                    </Col> */}
                 </Row>
             </Box>
+            {directcall && (
+                <BetweenLine />
+            )}
         </>
     )
 }
