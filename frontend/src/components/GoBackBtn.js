@@ -17,8 +17,10 @@ const GoBackBtn = ({ page }) => {
                 <Button
                     onClick={() => {
                         {
-                            page === "About" && navigate("/collections/bukhari")
+                            page === "AboutImam" && navigate("/collections/bukhari")
                             page === "Hadith" && navigate("/collections/bukhari")
+                            page === "Help" && navigate("/")
+                            page === "About" && navigate("/")
                             page === "Home" && navigate("/")
                         }
                     }}

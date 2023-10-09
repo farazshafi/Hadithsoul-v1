@@ -2,18 +2,23 @@ import { Box, Text, Button } from '@chakra-ui/react'
 import React from 'react'
 import { Row, Col, Container, } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'
+import OtherHadith from './OtherHadith'
 
-const Collections = () => {
+const Collections = ({directcall}) => {
 
     const navigate = useNavigate()
 
     return (
         <>
+        {directcall && (
+            <OtherHadith directcall={true} />
+        )}
             <Box
                 id='collection'
                 pl={{ base: "35px", md: "50px", lg: "92px" }}
                 pr={{ base: "35px", md: "50px", lg: "92px" }}
                 bg={"#1F2125"}
+                pb={"20px"}
             >
                 <Text
                     fontFamily={"Inter"}

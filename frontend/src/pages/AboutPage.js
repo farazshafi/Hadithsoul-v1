@@ -7,7 +7,7 @@ import AboutBgImg from "../images/about.png"
 const AboutPage = () => {
     return (
         <>
-            <GoBackBtn />
+            <GoBackBtn page={"About"} />
             <Box
                 textAlign={'center'}
                 bg={"#1F2125"}

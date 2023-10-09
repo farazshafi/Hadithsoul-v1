@@ -46,13 +46,13 @@ const MoreDrawer = () => {
                     <DrawerHeader>Quranicsoul.com</DrawerHeader>
                     <DrawerBody>
                         <Box
-                            borderBottom={"1px"}
+                        // borderBottom={"1px"}
                         >
                             <Text
                                 fontFamily={"Istok Web"}
                                 fontSize={{ lg: "lg", sm: "sm" }}
                             >
-                                Menu</Text>
+                                MENU :</Text>
                         </Box>
                         {/* Home */}
                         <Box
@@ -84,7 +84,7 @@ const MoreDrawer = () => {
                             pb={"3px"}
                             mb={"10px"}
                         >
-                            <Link display={"flex"} href='#collection'>
+                            <Link display={"flex"} href='/collections'>
                                 <i style={{ marginTop: "3px", }} class="fa-solid fa-users "></i>
                                 <Text
                                     fontFamily={"Istok Web"}
@@ -112,6 +112,132 @@ const MoreDrawer = () => {
                                     marginBottom={"0"}
                                     ml={"5px"}
                                 >About</Text>
+                            </Link>
+                        </Box>
+                        {/* Help */}
+                        <Box
+                            borderBottom={"1px"}
+                            _hover={{ color: "#181D31" }}
+                            display={"flex"}
+                            textAlign={"center"}
+                            pt={"3px"}
+                            pb={"3px"}
+                            mb={"10px"}
+                        >
+                            <Link display={"flex"} href='/help'>
+                                <i style={{ marginTop: "3px", }} class="fa-solid fa-circle-question "></i>
+                                <Text
+                                    fontFamily={"Istok Web"}
+                                    fontSize={{ lg: "lg", sm: "sm" }}
+                                    marginBottom={"0"}
+                                    ml={"5px"}
+                                >Help</Text>
+                            </Link>
+                        </Box>
+                        {/* Coming soon */}
+                        <Box
+                            // borderBottom={"1px"}
+                            mt={"20px"}
+                        >
+                            <Text
+                                fontFamily={"Istok Web"}
+                                fontSize={{ lg: "lg", sm: "sm" }}
+                            >
+                                COMING SOON :</Text>
+                        </Box>
+                        <Box
+                            borderBottom={"1px"}
+                            _hover={{ color: "#181D31" }}
+                            display={"flex"}
+                            textAlign={"center"}
+                            pt={"3px"}
+                            pb={"3px"}
+                            mb={"10px"}
+                        >
+                            <Link display={"flex"} href='/about'>
+                                <i style={{ marginTop: "3px", }} class="fa-solid fa-comment-dots "></i>
+                                <Text
+                                    fontFamily={"Istok Web"}
+                                    fontSize={{ lg: "lg", sm: "sm" }}
+                                    marginBottom={"0"}
+                                    ml={"5px"}
+                                >feedback</Text>
+                            </Link>
+                        </Box>
+                        <Box
+                            borderBottom={"1px"}
+                            _hover={{ color: "#181D31" }}
+                            display={"flex"}
+                            textAlign={"center"}
+                            pt={"3px"}
+                            pb={"3px"}
+                            mb={"10px"}
+                        >
+                            <Link display={"flex"} href='/about'>
+                                <i style={{ marginTop: "3px", }} class="fa-solid fa-bookmark "></i>
+                                <Text
+                                    fontFamily={"Istok Web"}
+                                    fontSize={{ lg: "lg", sm: "sm" }}
+                                    marginBottom={"0"}
+                                    ml={"5px"}
+                                >bookmark</Text>
+                            </Link>
+                        </Box>
+                        <Box
+                            borderBottom={"1px"}
+                            _hover={{ color: "#181D31" }}
+                            display={"flex"}
+                            textAlign={"center"}
+                            pt={"3px"}
+                            pb={"3px"}
+                            mb={"10px"}
+                        >
+                            <Link display={"flex"} href='/about'>
+                                <i style={{ marginTop: "3px", }} class="fa-solid fa-volume-high"></i>
+                                <Text
+                                    fontFamily={"Istok Web"}
+                                    fontSize={{ lg: "lg", sm: "sm" }}
+                                    marginBottom={"0"}
+                                    ml={"5px"}
+                                >Ringtones</Text>
+                            </Link>
+                        </Box>
+                        <Box
+                            borderBottom={"1px"}
+                            _hover={{ color: "#181D31" }}
+                            display={"flex"}
+                            textAlign={"center"}
+                            pt={"3px"}
+                            pb={"3px"}
+                            mb={"10px"}
+                        >
+                            <Link display={"flex"} href='/about'>
+                                <i style={{ marginTop: "3px", }} class="fa-solid fa-image"></i>
+                                <Text
+                                    fontFamily={"Istok Web"}
+                                    fontSize={{ lg: "lg", sm: "sm" }}
+                                    marginBottom={"0"}
+                                    ml={"5px"}
+                                >Post</Text>
+                            </Link>
+                        </Box>
+                        <Box
+                            borderBottom={"1px"}
+                            _hover={{ color: "#181D31" }}
+                            display={"flex"}
+                            textAlign={"center"}
+                            pt={"3px"}
+                            pb={"3px"}
+                            mb={"10px"}
+                        >
+                            <Link display={"flex"} href='/about'>
+                                <i style={{ marginTop: "3px", }} class="fa-solid fa-video"></i>
+                                <Text
+                                    fontFamily={"Istok Web"}
+                                    fontSize={{ lg: "lg", sm: "sm" }}
+                                    marginBottom={"0"}
+                                    ml={"5px"}
+                                >Videos</Text>
                             </Link>
                         </Box>
                     </DrawerBody>

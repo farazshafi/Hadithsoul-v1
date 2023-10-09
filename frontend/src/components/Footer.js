@@ -1,5 +1,5 @@
 import { LinkIcon } from '@chakra-ui/icons'
-import { Box, Text } from '@chakra-ui/react'
+import { Box, Link, Text } from '@chakra-ui/react'
 import React from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
 
@@ -8,8 +8,8 @@ const Footer = () => {
     <>
       <footer className='' style={{ backgroundColor: "black", paddingTop: "26px", paddingBottom: "26", paddingLeft: "60px", paddingRight: "60px" }}>
         <Box
-        pl={{base:"px",md:"50",lg:"60px"}}
-        pr={{base:"px",md:"50",lg:"60px"}}
+          pl={{ base: "px", md: "50", lg: "60px" }}
+          pr={{ base: "px", md: "50", lg: "60px" }}
         >
           <Row>
             {/* About */}
@@ -63,31 +63,30 @@ const Footer = () => {
                         color={"white"}
                         fontSize={{ base: "13px", md: "15px", lg: "15px" }} fontWeight={400}
                       >
-                        Home
+                        <Link href='/'>Home</Link>
                       </Text>
                       <Text
                         fontFamily={"Inter"}
                         color={"white"}
                         fontSize={{ base: "13px", md: "15px", lg: "15px" }} fontWeight={400}
                       >
-                        Home
+                        <Link href='/about'>about</Link>
                       </Text>
                       <Text
                         fontFamily={"Inter"}
                         color={"white"}
                         fontSize={{ base: "13px", md: "15px", lg: "15px" }} fontWeight={400}
                       >
-                        Home
+                        <Link href='/collections'>collections</Link>
                       </Text>
                       <Text
                         fontFamily={"Inter"}
                         color={"white"}
                         fontSize={{ base: "13px", md: "15px", lg: "15px" }} fontWeight={400}
                       >
-                        Home
+                        <Link href="/help">help</Link>
                       </Text>
                     </Box>
-
                   </Col>
 
                   {/* NETWORK */}
@@ -107,29 +106,22 @@ const Footer = () => {
                         fontSize={{ base: "13px", md: "15px", lg: "15px" }} fontWeight={400}
                         color={"white"}
                       >
-                        Instagram
+                        <Link target='_blank' href='https://www.instagram.com/_quranicsoul_/'>Instagram</Link>
                       </Text>
                       <Text
                         fontFamily={"Inter"}
                         fontSize={{ base: "13px", md: "15px", lg: "15px" }} fontWeight={400}
                         color={"white"}
                       >
-                        Facebook
+                        <Link target='_blank' href='https://www.instagram.com/_quranicsoul_/'>Facebook</Link>
                       </Text>
-                      <Text
+                      {/* <Text
                         fontFamily={"Inter"}
                         fontSize={{ base: "13px", md: "15px", lg: "15px" }} fontWeight={400}
                         color={"white"}
                       >
-                        Whatsapp
-                      </Text>
-                      <Text
-                        fontFamily={"Inter"}
-                        fontSize={{ base: "13px", md: "15px", lg: "15px" }} fontWeight={400}
-                        color={"white"}
-                      >
-                        Youtube
-                      </Text>
+                        <Link target='_blank' href='https://www.instagram.com/_quranicsoul_/'>Whatsapp</Link>
+                      </Text> */}
                     </Box>
                   </Col>
 

@@ -2,7 +2,7 @@ import React from 'react'
 import { Text, Box, Button } from "@chakra-ui/react"
 
 
-const OtherHadith = () => {
+const OtherHadith = ({directcall}) => {
     return (
         <>
             <Box
@@ -10,6 +10,7 @@ const OtherHadith = () => {
                 pl={{ base: "27px", md: "50px", lg: "92px" }}
                 pr={{ base: "27px", md: "50px", lg: "92px" }}
                 bg={"#1F2125"}
+                pb={directcall ? "30px" : "0"}
             >
                 <Text
                     fontFamily={"Inter"}

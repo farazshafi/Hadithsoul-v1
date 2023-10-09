@@ -14,7 +14,7 @@ const AboutImamPage = () => {
         <Box
             bg="#1F2125"
         >
-            <GoBackBtn page={"About"} />
+            <GoBackBtn page={"AboutImam"} />
             <ShortProfileImam profilePage={true} />
             {/* Auther bio */}
             <Box

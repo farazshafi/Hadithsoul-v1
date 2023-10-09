@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Text, Wrap, WrapItem } from "@chakra-ui/react"
+import { Box, Link, Text, Wrap, WrapItem } from "@chakra-ui/react"
 import { HamburgerIcon, SearchIcon, SunIcon } from "@chakra-ui/icons"
 import { Avatar } from '@chakra-ui/react'
 import SearchDrawer from './SearchDrawer'
@@ -25,7 +25,11 @@ const Header = () => {
             width={'auto'}
             color={"white"}
             ml={"10px"}
-          >Quranicsoul</Text>
+          >
+            <Link href="/" _hover={{textDecoration:"none"}}>
+              Quranicsoul
+            </Link>
+          </Text>
           {/* ToggleColorMode */}
           <Box
             ml={"auto"}
