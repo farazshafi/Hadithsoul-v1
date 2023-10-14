@@ -18,9 +18,9 @@ function App() {
       <Routes>
         <Route exact path='/' element={<HomePage />} />
         <Route exact path='/collections' element={<Collections directcall={true} />} />
-        <Route path='/collections/:name?' element={<CollectionsPage />} />
-        <Route path='/collections/:name?/about' element={<AboutImamPage />} />
-        <Route path='/collections/:name?/book/:number?' element={<HadithPage />} />
+        <Route path='/collections/:name' element={<CollectionsPage />} />
+        <Route path='/collections/:name/about' element={<AboutImamPage />} />
+        <Route path='/collections/:name?/book/:bookname/:chapter?' element={<HadithPage />} />
         <Route path='/about' element={<AboutPage />} />
         <Route path='/help' element={<HelpPage />} />
       </Routes>

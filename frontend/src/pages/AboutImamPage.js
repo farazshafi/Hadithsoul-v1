@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import GoBackBtn from '../components/GoBackBtn'
 import ShortProfileImam from '../components/ShortProfileImam'
 import { Box, Text } from '@chakra-ui/react'
@@ -8,14 +8,19 @@ import FlowerBackgroundImg from "../images/flower.png"
 import LeafBackgroundImg from "../images/leaf.png"
 import FlowerTwoBackgroundImg from "../images/flower2.png"
 import FlowerThreeBackgroundImg from "../images/flower3.png"
+import { useParams } from 'react-router-dom'
 
 const AboutImamPage = () => {
+
+    const params = useParams()
+    const name = params.name
+
     return (
         <Box
             bg="#1F2125"
         >
-            <GoBackBtn page={"AboutImam"} />
-            <ShortProfileImam profilePage={true} />
+            <GoBackBtn name={name} page={"AboutImam"} />
+            <ShortProfileImam profilePage={true} name={name} />
             {/* Auther bio */}
             <Box
                 pt={{ base: "20px", md: "22px", lg: "25px" }}

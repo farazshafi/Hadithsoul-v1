@@ -8,9 +8,36 @@ import {
     Td,
     TableContainer,
 } from '@chakra-ui/react'
-import React from 'react'
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
+import Loader from "../components/Loader"
+import {ArrowRightIcon, Rig} from "@chakra-ui/icons"
+import { useNavigate } from 'react-router-dom'
 
-const AboutBook = () => {
+const AboutBook = ({ name }) => {
+    const [bookName, setBookName] = useState([])
+    const [loading, setLoading] = useState(false)
+
+    const navigate = useNavigate()
+
+    const fetchBookname = async () => {
+        try {
+            setLoading(true)
+            const { data } = await axios.get(`/api/sunna/getCollectionsBook/${name}`)
+            setBookName(data)
+            setLoading(false)
+        } catch (error) {
+            console.log(error)
+            setLoading(false)
+        }
+
+    }
+
+    useEffect(() => {
+        // console.log("params :",name)
+        fetchBookname()
+    }, []);
+
     return (
         <>
             {/* option two */}
@@ -87,38 +114,27 @@ const AboutBook = () => {
                     <Table size={{ base: "sm", md: "md", lg: "lg" }}>
                         <Thead>
                             <Tr>
-                                <Th color={"white"} textAlign={"center"}>Book</Th>
-                                <Th color={"white"} textAlign={"center"}>Title</Th>
-                                <Th color={"white"} textAlign={"center"}>Starting</Th>
-
+                                <Th color={"white"} textAlign={""}>Book</Th>
+                                <Th color={"white"} textAlign={""}>Title</Th>
+                                <Th color={"white"} textAlign={""}>Read</Th>
+                                {/* <Th color={"white"} textAlign={"center"}>Starting</Th> */}
                             </Tr>
                         </Thead>
                         <Tbody>
-                            <Tr>
-                                <Td color={"white"} textAlign={"center"}>01</Td>
-                                <Td color={"white"} textAlign={"center"}>Revelation</Td>
-                                <Td color={"white"} textAlign={"center"}>1/9</Td>
-                            </Tr>
-                            <Tr>
-                                <Td color={"white"} textAlign={"center"}>02</Td>
-                                <Td color={"white"} textAlign={"center"}>Belief</Td>
-                                <Td color={"white"} textAlign={"center"}>10/99</Td>
-                            </Tr>
-                            <Tr>
-                                <Td color={"white"} textAlign={"center"}>03</Td>
-                                <Td color={"white"} textAlign={"center"}>Knowledge</Td>
-                                <Td color={"white"} textAlign={"center"}>100/900</Td>
-                            </Tr>
-                            <Tr>
-                                <Td color={"white"} textAlign={"center"}>04</Td>
-                                <Td color={"white"} textAlign={"center"}>Ablutions</Td>
-                                <Td color={"white"} textAlign={"center"}>1000/9999</Td>
-                            </Tr>
-                            <Tr>
-                                <Td color={"white"} textAlign={"center"}>04</Td>
-                                <Td color={"white"} textAlign={"center"}>Ablutions</Td>
-                                <Td color={"white"} textAlign={"center"}>10000,99000</Td>
-                            </Tr>
+                            {loading && (
+                                <Loader />
+                            )}
+                            {bookName && bookName.map((book) => (
+                                <Tr onClick={()=>{
+                                    navigate(`/collections/${name}/book/${book.chapterEnglish}/${book.chapterNumber}`)
+                                }}>
+                                    <Td color={"white"} textAlign={""}>{book.chapterNumber}</Td>
+                                    <Td color={"white"} textAlign={""}>{book.chapterEnglish}</Td>
+                                    <Td color={"white"} textAlign={""}><ArrowRightIcon /></Td>
+                                    {/* <Td color={"white"} textAlign={"center"}>1/9</Td> */}
+                                </Tr>
+                            ))}
+
                         </Tbody>
                     </Table>
                 </Box>

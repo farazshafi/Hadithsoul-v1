@@ -6,8 +6,9 @@ import OtherHadith from './OtherHadith'
 import BetweenLine from './BetweenLine'
 import GoBackBtn from './GoBackBtn'
 import axios from "axios"
-import Lottie from "lottie-react"
-import animationLoading from "../animations/loading.json"
+import Loader from "../components/Loader"
+// import Lottie from "lottie-react"
+// import animationLoading from "../animations/loading.json"
 
 const Collections = ({ directcall }) => {
     const [collections, setCollections] = useState([])
@@ -19,6 +20,7 @@ const Collections = ({ directcall }) => {
         try {
             setLoading(true)
             const { data } = await axios.get("/api/sunna/getCollectionsName")
+            // console.log(data[0].bookName)
             setCollections(data)
             setLoading(false)
         } catch (error) {
@@ -63,36 +65,19 @@ const Collections = ({ directcall }) => {
                 </Text>
                 <Row>
                     {loading ? (
-                        <>
-                            <Box
-                            pt={"20px"}
-                            display={"flex"}
-                            >
-                               
-                                <Spinner
-                                    size={{lg:"xl",base:"xs",md:"lg"}}
-                                    color='white'
-                                    w={20}
-                                    h={20}
-                                    alignSelf={'center'}
-                                    margin={"auto"}
-                                />
-                            </Box>
-
-
-                        </>
+                        <Loader />
                     ) : (
-                        collections.map((imam) => (
+                        collections && collections.map((imam) => (
                             <Col sm={6} md={4}>
                                 <Button
-                                    onClick={() => navigate(`/collections/${imam.name}`)}
+                                    onClick={() => navigate(`/collections/${imam.bookSlug}`)}
                                     mt={"15px"}
                                     width={"100%"}
                                     color={"blackAlpha.800"}
                                     bgColor={"#D9D9D9"}
                                     variant={"solid"}
                                 >
-                                    {imam.name}
+                                    {imam.bookName}
                                 </Button>
                             </Col>
                         ))

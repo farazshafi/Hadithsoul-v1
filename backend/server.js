@@ -3,6 +3,7 @@ import dotenv from 'dotenv';
 import connectDB from './config/db.js';
 import userRoutes from "./routes/userRoutes.js"
 import sunnaRoutes from "./routes/sunnaRoutes.js"
+import {errorHandler, notFound} from "./middleware/errorMiddleware.js"
 
 dotenv.config();
 connectDB();
@@ -17,6 +18,9 @@ app.use("/api/sunna", sunnaRoutes)
 app.get('/', (req, res) => {
     res.send('Api is running..');
 });
+
+app.use(errorHandler)
+app.use(notFound)
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {

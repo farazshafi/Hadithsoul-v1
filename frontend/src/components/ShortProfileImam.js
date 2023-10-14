@@ -1,13 +1,45 @@
-import React from 'react'
-import { useNavigate } from 'react-router-dom'
-import { Text, Box, Button } from '@chakra-ui/react'
+import React, { useEffect, useState } from 'react'
+import { useLocation, useNavigate, useParams } from 'react-router-dom'
+import { Text, Box, Button, Spinner, useToast } from '@chakra-ui/react'
+import axios from 'axios'
+import Loader from './Loader'
 
 
-const ShortProfileImam = ({ profilePage }) => {
+const ShortProfileImam = ({ profilePage, name }) => {
+
+    const [writerName, setWriterName] = useState("")
+    const [loading, setLoading] = useState(false)
 
     const navigate = useNavigate()
+    const params = useParams()
+    const toast = useToast()
+
+
+    const getCollectionsDetails = async () => {
+        try {
+            setLoading(true)
+            const { data } = await axios.get(`/api/sunna/getCollectionsHadith/${name}/book/1`)
+            const writername = data[0].book.writerName
+            setWriterName(writername)
+            setLoading(false)
+        } catch (error) {
+            toast({
+                title: 'Invalid URL.',
+                status: 'error',
+                duration: 5000,
+                isClosable: true,
+            })
+            console.log(error.message)
+            setLoading(false)
+        }
+    }
+
+    useEffect(() => {
+        getCollectionsDetails()
+    }, []);
 
     return (
+
         <>
             <Box
                 pl={{ base: "30px", md: "92px", lg: "92px" }}
@@ -21,25 +53,29 @@ const ShortProfileImam = ({ profilePage }) => {
                     fontWeight={700}
                     textAlign={"center"}
                     textDecoration={"underline"}
-                >
-                    Sahih al-Bukhari
+                >{loading ? (
+                    <Loader />
+                ) : (
+                    writerName
+                )}
                 </Text>
-                <Text
+                {/* shortIntro */}
+                {/* <Text
                     fontFamily={"Inter"}
                     fontSize={{ base: "10px", md: "13px", lg: "15px" }}
                     color={"white"}
                     fontWeight={400}
                     textAlign={"center"}
                 >
-                    Sahih al-Bukhari is a collection of hadith compiled by Imam Muhammad al-Bukhari (d. 256 AH/870 AD) (rahimahullah). His collection is recognized by the overwhelming majority of the Muslim world to be the most authentic collection of reports of the Sunnah of the Prophet Muhammad (ﷺ). It contains over 7500 hadith (with repetitions) in 97 books. The translation provided here is by Dr. M. Muhsin Khan.
-                </Text>
+                    
+                </Text> */}
                 {profilePage ?
                     (<></>)
                     :
                     (
                         <Box display="flex" justifyContent="flex-end">
                             <Button
-                                onClick={() => { navigate("/collections/bukhari/about") }}
+                                onClick={() => { navigate(`/collections/${name}/about`) }}
                                 color={"white"}
                                 size={{ base: "sm", md: "md", lg: "lg" }} bg={"#272F33"}>
                                 Read More
