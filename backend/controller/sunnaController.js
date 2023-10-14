@@ -35,6 +35,23 @@ const getCollectionsBook = asyncHandler(async (req, res) => {
     }
 });
 
+// @desc    Get Searched Hadith
+// @route   GET /api/sunna/getSearchedHadith/:keyword
+// @access  Public
+const getSearchedHadith = asyncHandler(async (req, res) => {
+    const keyword = req.params.keyword;
+    // const chapter = req.params.chapter;
+    const url = `https://www.hadithapi.com/api/hadiths/?apiKey=${process.env.API_KEY}&hadithEnglish=${keyword}`;
+    try {
+        const response = await axios.get(url);
+        const data = response.data.hadiths.data;
+        res.json(data);
+    } catch (error) {
+        res.status(401)
+        throw new Error("Check your Url.")
+    }
+});
+
 // @desc    Get collections Hadith
 // @route   GET /api/sunna/getCollectionsHadith/:name/book/:chapter
 // @access  Public
@@ -52,4 +69,4 @@ const getCollectionsHadith = asyncHandler(async (req, res) => {
     }
 });
 
-export { getCollectionsName, getCollectionsBook, getCollectionsHadith };
+export { getCollectionsName, getCollectionsBook, getCollectionsHadith, getSearchedHadith };

@@ -7,6 +7,7 @@ const Loader = () => {
             <Box
                 pt={"20px"}
                 display={"flex"}
+                pb="50px"
             >
 
                 <Spinner

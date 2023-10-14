@@ -7,11 +7,9 @@ import Loader from './Loader'
 
 const ShortProfileImam = ({ profilePage, name }) => {
 
-    const [writerName, setWriterName] = useState("")
+    const [writerName, setWriterName] = useState("muslim")
     const [loading, setLoading] = useState(false)
 
-    const navigate = useNavigate()
-    const params = useParams()
     const toast = useToast()
 
 
@@ -19,6 +17,7 @@ const ShortProfileImam = ({ profilePage, name }) => {
         try {
             setLoading(true)
             const { data } = await axios.get(`/api/sunna/getCollectionsHadith/${name}/book/1`)
+            console.log(data)
             const writername = data[0].book.writerName
             setWriterName(writername)
             setLoading(false)
@@ -52,12 +51,14 @@ const ShortProfileImam = ({ profilePage, name }) => {
                     color={"white"}
                     fontWeight={700}
                     textAlign={"center"}
+                    mb={0}
                     textDecoration={"underline"}
-                >{loading ? (
-                    <Loader />
-                ) : (
-                    writerName
-                )}
+                >
+                    {loading ? (
+                        <Loader />
+                    ) : (
+                        writerName
+                    )}
                 </Text>
                 {/* shortIntro */}
                 {/* <Text
@@ -73,14 +74,17 @@ const ShortProfileImam = ({ profilePage, name }) => {
                     (<></>)
                     :
                     (
-                        <Box display="flex" justifyContent="flex-end">
+                        <>
+                            {/* <Box display="flex" justifyContent="flex-end">
                             <Button
                                 onClick={() => { navigate(`/collections/${name}/about`) }}
                                 color={"white"}
                                 size={{ base: "sm", md: "md", lg: "lg" }} bg={"#272F33"}>
                                 Read More
                             </Button>
-                        </Box >
+                        </Box > */}
+                        </>
+
                     )
                 }
 

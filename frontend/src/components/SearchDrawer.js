@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {
     Drawer,
     DrawerBody,
@@ -13,14 +13,17 @@ import {
     Box
 } from '@chakra-ui/react'
 import { SearchIcon } from '@chakra-ui/icons'
+import { useNavigate } from 'react-router-dom'
 
 const SearchDrawer = () => {
-
+    const [keyword, setKeyword] = useState()
     const { isOpen, onOpen, onClose } = useDisclosure()
     const btnRef = React.useRef()
 
-    const handleSearch = () => { 
-        console.log("Search")
+    const navigate = useNavigate()
+
+    const handleSearch = () => {
+        navigate(`/search/${keyword}`)
     }
 
     return (
@@ -45,7 +48,7 @@ const SearchDrawer = () => {
                         <Box
                             display={"flex"}
                         >
-                            <Input mr={2} placeholder='Search here..' />
+                            <Input value={keyword} onChange={(e) => setKeyword(e.target.value)} mr={2} placeholder='Search here..' />
                             <Button onClick={handleSearch}>Go</Button>
                         </Box>
                     </DrawerBody>

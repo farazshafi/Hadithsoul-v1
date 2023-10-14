@@ -115,8 +115,8 @@ const Hadiths = ({ data, loading, bookname, chapter }) => {
                                     <Text
                                         color={"white"}
                                     >
-                                        <text style={{ fontFamily: "Istok Web", fontSize: { lg: "18px", md: "", base: "5px" } }}>In-book reference : </text>
-                                        <text style={{ fontFamily: "Inter", fontSize: { lg: "15px", md: "13px", base: "10px" } }}>book {chapter} , Hadith {item.hadithNumber}</text>
+                                        {/* <text style={{ fontFamily: "Istok Web", fontSize: { lg: "18px", md: "", base: "5px" } }}>In-book reference : </text> */}
+                                        {/* <text style={{ fontFamily: "Inter", fontSize: { lg: "15px", md: "13px", base: "10px" } }}>book {chapter} , Hadith {item.hadithNumber}</text> */}
                                     </Text>
                                 </Box>
                             </Col>
@@ -124,7 +124,7 @@ const Hadiths = ({ data, loading, bookname, chapter }) => {
                             {/* <Col>
                                 <Box
                                     display="flex" justifyContent={{ base: "center", lg: "flex-end", md: "flex-end" }}
-                                >
+                                >   
                                     <Button
                                         size={{ base: "sm", md: "md", lg: "lg" }}
                                         bg={"#272F33"}

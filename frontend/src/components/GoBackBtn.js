@@ -23,6 +23,7 @@ const GoBackBtn = ({ page, name }) => {
                             page === "Collections" && navigate("/")
                             page === "About" && navigate("/")
                             page === "Home" && navigate("/")
+                            page === "Search" && navigate("/")
                         }
                     }}
                     size={{ base: "sm", md: "md", lg: "lg" }}

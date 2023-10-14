@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import GoBackBtn from './GoBackBtn'
+import GoBackBtn from '../components/GoBackBtn'
 import { Box } from '@chakra-ui/react'
-
-import Hadiths from './Hadiths'
+import Hadiths from '../components/Hadiths'
 import axios from 'axios'
 import { useNavigate, useParams } from 'react-router-dom'
 
