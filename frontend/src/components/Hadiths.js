@@ -25,7 +25,7 @@ const Hadiths = ({ data, loading, bookname, chapter }) => {
                 >
                     <span>{chapter}</span>
                     <span><i style={{ marginLeft: "10px" }} class="fa-solid fa-book"></i></span>
-                    <span style={{ marginLeft: "10px" }}>{bookname}</span>
+                    <span style={{ marginLeft: "10px" }}>: {bookname}</span>
                 </Text>
             </Box>
             <BetweenLine />

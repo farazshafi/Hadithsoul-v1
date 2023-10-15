@@ -7,26 +7,39 @@ import {
     Th,
     Td,
     TableContainer,
+    useToast,
 } from '@chakra-ui/react'
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import Loader from "../components/Loader"
 import { ArrowRightIcon, Rig } from "@chakra-ui/icons"
 import { useNavigate } from 'react-router-dom'
+import Offline from "../components/Offline"
 
 const AboutBook = ({ name }) => {
     const [bookName, setBookName] = useState([])
     const [loading, setLoading] = useState(false)
+    const [internet, setInternet] = useState(true)
 
     const navigate = useNavigate()
+    const toast = useToast()
 
     const fetchBookname = async () => {
         try {
             setLoading(true)
             const { data } = await axios.get(`/api/sunna/getCollectionsBook/${name}`)
+            setInternet(true)
             setBookName(data)
             setLoading(false)
         } catch (error) {
+            setInternet(false)
+            // toast({
+            //     title: 'Check You Connection.',
+            //     status: 'error',
+            //     duration: 5000,
+            //     position: "top-left",
+            //     isClosable: true,
+            // })
             console.log(error)
             setLoading(false)
         }
@@ -108,38 +121,45 @@ const AboutBook = ({ name }) => {
                 pr={{ base: "25px", md: "91px", lg: "91px" }}
                 pb={{ base: "30px", md: "78px", lg: "78px" }}
             >
-                <Box
-                    bg={"#242424"}
-                >
-                    <Table size={{ base: "sm", md: "md", lg: "lg" }}>
-                        {loading ? (
-                            <Loader />
-                        ) : (<>
-                            <Thead>
-                                <Tr>
-                                    <Th color={"white"} textAlign={""}>Book</Th>
-                                    <Th color={"white"} textAlign={""}>Title</Th>
-                                    <Th color={"white"} textAlign={""}>Read</Th>
-                                    {/* <Th color={"white"} textAlign={"center"}>Starting</Th> */}
-                                </Tr>
-                            </Thead>
-                            <Tbody>
-                                {bookName && bookName.map((book) => (
-                                    <Tr onClick={() => {
-                                        navigate(`/collections/${name}/book/${book.chapterEnglish}/${book.chapterNumber}`)
-                                    }}>
-                                        <Td key={book.id} color={"white"} textAlign={""}>{book.chapterNumber}</Td>
-                                        <Td key={book.id} color={"white"} textAlign={""}>{book.chapterEnglish}</Td>
-                                        <Td key={book.id} color={"white"} textAlign={""}><ArrowRightIcon /></Td>
-                                        {/* <Td color={"white"} textAlign={"center"}>1/9</Td> */}
-                                    </Tr>
-                                ))}
+                {internet ? (
+                    <>
+                        <Box
+                            bg={"#242424"}
+                        >
+                            <Table size={{ base: "sm", md: "md", lg: "lg" }}>
+                                {loading ? (
+                                    <Loader />
+                                ) : (<>
+                                    <Thead>
+                                        <Tr>
+                                            <Th color={"white"} textAlign={""}>Book</Th>
+                                            <Th color={"white"} textAlign={""}>Title</Th>
+                                            <Th color={"white"} textAlign={""}>Read</Th>
+                                            {/* <Th color={"white"} textAlign={"center"}>Starting</Th> */}
+                                        </Tr>
+                                    </Thead>
+                                    <Tbody>
+                                        {bookName && bookName.map((book) => (
+                                            <Tr onClick={() => {
+                                                navigate(`/collections/${name}/book/${book.chapterEnglish}/${book.chapterNumber}`)
+                                            }}>
+                                                <Td key={book.id} color={"white"} textAlign={""}>{book.chapterNumber}</Td>
+                                                <Td key={book.id} color={"white"} textAlign={""}>{book.chapterEnglish}</Td>
+                                                <Td key={book.id} color={"white"} textAlign={""}><ArrowRightIcon /></Td>
+                                                {/* <Td color={"white"} textAlign={"center"}>1/9</Td> */}
+                                            </Tr>
+                                        ))}
 
-                            </Tbody>
-                        </>)}
+                                    </Tbody>
+                                </>)}
 
-                    </Table>
-                </Box>
+                            </Table>
+                        </Box>
+                    </>
+                ) : (
+                    <></>
+                )}
+
             </Box>
         </>
     )

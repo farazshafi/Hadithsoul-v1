@@ -57,7 +57,7 @@ const MoreDrawer = () => {
                         {/* Home */}
                         <Box
                             borderBottom={"1px"}
-                            _hover={{ color: "#181D31" }}
+                            _hover={{ color: "grey" }}
                             display={"flex"}
                             textAlign={"center"}
                             pt={"3px"}
@@ -145,6 +145,7 @@ const MoreDrawer = () => {
                             >
                                 COMING SOON :</Text>
                         </Box>
+                        {/* Feedback */}
                         <Box
                             borderBottom={"1px"}
                             _hover={{ color: "#181D31" }}
@@ -164,6 +165,7 @@ const MoreDrawer = () => {
                                 >feedback</Text>
                             </Link>
                         </Box>
+                        {/* Bookmark */}
                         <Box
                             borderBottom={"1px"}
                             _hover={{ color: "#181D31" }}
@@ -183,6 +185,7 @@ const MoreDrawer = () => {
                                 >bookmark</Text>
                             </Link>
                         </Box>
+                        {/* Ringtones */}
                         <Box
                             borderBottom={"1px"}
                             _hover={{ color: "#181D31" }}
@@ -202,6 +205,7 @@ const MoreDrawer = () => {
                                 >Ringtones</Text>
                             </Link>
                         </Box>
+                        {/* posts */}
                         <Box
                             borderBottom={"1px"}
                             _hover={{ color: "#181D31" }}
@@ -221,6 +225,7 @@ const MoreDrawer = () => {
                                 >Post</Text>
                             </Link>
                         </Box>
+                        {/* videos */}
                         <Box
                             borderBottom={"1px"}
                             _hover={{ color: "#181D31" }}
@@ -238,6 +243,46 @@ const MoreDrawer = () => {
                                     marginBottom={"0"}
                                     ml={"5px"}
                                 >Videos</Text>
+                            </Link>
+                        </Box>
+                        {/* 99 names of allah */}
+                        <Box
+                            borderBottom={"1px"}
+                            _hover={{ color: "#181D31" }}
+                            display={"flex"}
+                            textAlign={"center"}
+                            pt={"3px"}
+                            pb={"3px"}
+                            mb={"10px"}
+                        >
+                            <Link display={"flex"} href='/about'>
+                                <i style={{ marginTop: "3px", }} class="fa-solid fa-file"></i>
+                                <Text
+                                    fontFamily={"Istok Web"}
+                                    fontSize={{ lg: "lg", sm: "sm" }}
+                                    marginBottom={"0"}
+                                    ml={"5px"}
+                                >99 Names of Allah</Text>
+                            </Link>
+                        </Box>
+                        {/* Adhkar */}
+                        <Box
+                            borderBottom={"1px"}
+                            _hover={{ color: "#181D31" }}
+                            display={"flex"}
+                            textAlign={"center"}
+                            pt={"3px"}
+                            pb={"3px"}
+                            mb={"10px"}
+                        >
+                            <Link display={"flex"} href='/about'>
+                                <i style={{ marginTop: "3px", }} class="fa-solid fa-pray"></i>
+                                <Text
+                                    fontFamily={"Istok Web"}
+                                    fontSize={{ lg: "lg", sm: "sm" }}
+                                    marginBottom={"0"}
+                                    ml={"5px"}
+                                >Adhkar</Text>
                             </Link>
                         </Box>
                     </DrawerBody>
