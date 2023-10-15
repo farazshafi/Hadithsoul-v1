@@ -9,6 +9,7 @@ import HomePageInput from '../components/HomePageInput'
 import { useParams } from 'react-router-dom'
 import Loader from '../components/Loader'
 import Offline from "../components/Offline"
+import ReadMore from "../components/ReadMore"
 
 const SearchResultPage = () => {
   const [loading, setLoading] = useState(false)
@@ -139,7 +140,8 @@ const SearchResultPage = () => {
                     textAlign={"end"}
                     color={"white"}
                   >
-                    {item && item.hadithArabic}
+                    <ReadMore text={item.hadithArabic} />
+                    {/* {item && item.hadithArabic} */}
                   </Text>
                 </Box>
                 {/* English Hadith */}
@@ -167,7 +169,7 @@ const SearchResultPage = () => {
                     fontFamily={"Inter"}
                     fontWeight={400}
                   >
-                    {item && item.hadithEnglish}
+                    <ReadMore text={item.hadithEnglish} />
                   </Text>
                 </Box>
 
