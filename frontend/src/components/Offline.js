@@ -1,25 +1,38 @@
 import { Box, Text } from '@chakra-ui/react'
 import React from 'react'
+import Lottie from "lottie-react"
+import NetworkAnimation from "../animations/networkIssue.json"
 
 const Offline = () => {
+
+    // lottie styles
+    const lottieStyleNetwork = {
+        width: "300px",
+        // marginBottom: 5,
+        // marginLeft: 0
+    }
+
     return (
         <>
             <Box>
-                <Text
-                    textAlign={"center"}
-                    fontFamily={"Inter"}
-                    fontSize={{ lg: "xl", md: "lg", sm: "md" }}
-                    color={"white"}
-                    mb={0}
-                    fontWeight={700}
-                >Check Your Internet</Text>
-                <Text
-                    textAlign={"center"}
-                    mb={0}
-                    color={"white"}
-                    pb={"50px"}
 
-                >Try again.</Text>
+                <Box
+                    ml="auto"
+                    display="flex"
+                    justifyContent="center"
+                    alignItems="center"
+                    height="100%" // Adjust height as needed
+                >
+                    <Lottie
+                        animationData={NetworkAnimation}
+                        style={lottieStyleNetwork}
+                        loop={true}
+                        autoPlay={true}
+                    />
+                </Box>
+
+
+
             </Box>
         </>
     )

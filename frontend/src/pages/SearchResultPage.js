@@ -14,8 +14,7 @@ import ReadMore from "../components/ReadMore"
 const SearchResultPage = () => {
   const [loading, setLoading] = useState(false)
   const [bookName, setBookName] = useState([])
-  const [searchResult, setSearchResult] = useState(false)
-  const [internet, setInternet] = useState(true)
+  const [hadith, setHadith] = useState(true)
 
   const params = useParams()
   const toast = useToast()
@@ -26,20 +25,10 @@ const SearchResultPage = () => {
       setLoading(true)
       const { data } = await axios.get(`/api/sunna/getSearchedHadith/${keyword}`)
       setBookName(data)
-      setInternet(true)
-      setSearchResult(true)
+      setHadith(true)
       setLoading(false)
     } catch (error) {
-      setInternet(false)
-      toast({
-        title: 'Check You Connection.',
-        description: "Try Again.",
-        status: 'error',
-        duration: 5000,
-        position: "top-left",
-        isClosable: true,
-      })
-      setSearchResult(false)
+      setHadith(false)
       console.log(error.data)
       setLoading(false)
     }
@@ -69,22 +58,22 @@ const SearchResultPage = () => {
         >SEARCH RESULT</Text>
         <BetweenLine />
         {loading && <Loader />}
-        {internet ? (
+        {!hadith && (
           <>
-            {!searchResult && (
-              <>
-                <Box>
-                  <Text
-                    textAlign={"center"}
-                    fontFamily={"Inter"}
-                    mb={0}
-                    pb={{ base: "15px", md: "30px", lg: "40px" }}
-                    fontSize={{ base: "sm", md: "md", lg: "lg" }}
-                  >
-                    No Result Found , Try again
-                  </Text>
-                </Box>
-              </>)}
+            <Box>
+              <Text
+                textAlign={"center"}
+                fontFamily={"Inter"}
+                fontSize={{ lg: "30px", md: "25px", sm: "10px" }}
+                mb={0}
+                pb={{ base: "15px", md: "30px", lg: "40px" }}
+              >
+                Hadith Not Found
+              </Text>
+            </Box>
+          </>)}
+        {hadith && (
+          <>
             {bookName && bookName.map((item) => (
               <>
                 {/* Book */}
@@ -110,6 +99,9 @@ const SearchResultPage = () => {
                   pt={{ base: "8px", md: "12px", lg: "15px" }}
                   pb={{ base: "8px", md: "12px", lg: "15px" }}
                   mb={"25px"}
+                  data-aos="fade-up"
+                  data-aos-duration="700"
+
                 >
                   <Text
                     color={"white"}
@@ -132,6 +124,8 @@ const SearchResultPage = () => {
                   bg={"#1F2125"}
                   pl={{ base: "4%", md: "15%", lg: "15%" }}
                   mb={{ base: "20px", md: "20px", lg: "25px" }}
+                  data-aos="fade-left"
+                  data-aos-duration="700"
                 >
                   <Text
                     fontFamily={"Inter"}
@@ -153,6 +147,8 @@ const SearchResultPage = () => {
                   pt={{ base: "10px", md: "14px", lg: "18px" }}
                   pb={{ base: "10px", md: "14px", lg: "18px" }}
                   mb={{ base: "15px", md: "20px", lg: "25px" }}
+                  data-aos="fade-right"
+                  data-aos-duration="700"
                 >
                   <Text
                     color={"black"}
@@ -172,7 +168,6 @@ const SearchResultPage = () => {
                     <ReadMore text={item.hadithEnglish} />
                   </Text>
                 </Box>
-
                 {/* Reference and save to bookmark btn */}
                 <Box>
                   <Row>
@@ -213,8 +208,6 @@ const SearchResultPage = () => {
               </>
             ))}
           </>
-        ) : (
-          <Offline />
         )}
 
       </Box>

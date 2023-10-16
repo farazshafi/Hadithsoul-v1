@@ -3,6 +3,7 @@ import { Col, Row } from 'react-bootstrap'
 import BetweenLine from '../components/BetweenLine'
 import { Box, Button, Center, Text } from '@chakra-ui/react'
 import Loader from './Loader'
+import ReadMore from "../components/ReadMore"
 
 
 const Hadiths = ({ data, loading, bookname, chapter }) => {
@@ -30,8 +31,11 @@ const Hadiths = ({ data, loading, bookname, chapter }) => {
             </Box>
             <BetweenLine />
             {loading && <Loader />}
-            {data && data.map((item) => (
-                <>
+            {data && data.map((item, index) => (
+                <Box
+                    data-aos="fade-up"
+                    data-aos-duration="900"
+                >
                     {/* Chapter */}
                     <Box
                         bg={"#242424"}
@@ -59,6 +63,8 @@ const Hadiths = ({ data, loading, bookname, chapter }) => {
                     </Box>
                     {/* Arabic Hadith */}
                     <Box
+                        data-aos="fade-left"
+                        data-aos-duration="900"
                         bg={"#1F2125"}
                         pl={{ base: "4%", md: "15%", lg: "15%" }}
                         mb={{ base: "20px", md: "20px", lg: "25px" }}
@@ -70,11 +76,13 @@ const Hadiths = ({ data, loading, bookname, chapter }) => {
                             textAlign={"end"}
                             color={"white"}
                         >
-                            {item.hadithArabic}
+                            <ReadMore text={item.hadithArabic} />
                         </Text>
                     </Box>
                     {/* English Hadith */}
                     <Box
+                        data-aos="fade-right"
+                        data-aos-duration="900"
                         bg={"#FFF"}
                         borderRadius={"0px 40px 40px 0px"}
                         pl={{ base: "10px", md: "20px", lg: "30px" }}
@@ -98,7 +106,7 @@ const Hadiths = ({ data, loading, bookname, chapter }) => {
                             fontFamily={"Inter"}
                             fontWeight={400}
                         >
-                            {item.hadithEnglish}
+                            <ReadMore text={item.hadithEnglish} />
                         </Text>
                     </Box>
                     {/* Reference and save to bookmark btn */}
@@ -115,8 +123,8 @@ const Hadiths = ({ data, loading, bookname, chapter }) => {
                                     <Text
                                         color={"white"}
                                     >
-                                        {/* <text style={{ fontFamily: "Istok Web", fontSize: { lg: "18px", md: "", base: "5px" } }}>In-book reference : </text> */}
-                                        {/* <text style={{ fontFamily: "Inter", fontSize: { lg: "15px", md: "13px", base: "10px" } }}>book {chapter} , Hadith {item.hadithNumber}</text> */}
+                                        <text style={{ fontFamily: "Istok Web", fontSize: { lg: "18px", md: "", base: "5px" } }}>In-book reference : </text>
+                                        <text style={{ fontFamily: "Inter", fontSize: { lg: "15px", md: "13px", base: "10px" } }}>book {chapter} , Hadith {index + 1}</text>
                                     </Text>
                                 </Box>
                             </Col>
@@ -138,7 +146,7 @@ const Hadiths = ({ data, loading, bookname, chapter }) => {
                             <BetweenLine />
                         </Row>
                     </Box>
-                </>
+                </Box>
             ))}
 
         </>

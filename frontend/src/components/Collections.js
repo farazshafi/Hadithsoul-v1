@@ -82,11 +82,14 @@ const Collections = ({ directcall }) => {
                                 <Loader />
                             ) : (
                                 collections && collections.map((imam) => (
-                                    <Col sm={6} md={4}>
+                                    <Col data-aos="fade-up"
+                                        data-aos-duration="900"
+                                        sm={6} md={4}>
                                         <Button
                                             onClick={() => navigate(`/collections/${imam.bookSlug}`)}
                                             mt={"15px"}
                                             width={"100%"}
+                                            _hover={{bgColor:"#272F33",color:"white"}}
                                             color={"blackAlpha.800"}
                                             bgColor={"#D9D9D9"}
                                             variant={"solid"}
