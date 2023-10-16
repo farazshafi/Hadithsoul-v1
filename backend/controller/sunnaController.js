@@ -41,14 +41,10 @@ const getCollectionsBook = asyncHandler(async (req, res) => {
 const getSearchedHadith = asyncHandler(async (req, res) => {
     const keyword = req.params.keyword;
     // const chapter = req.params.chapter;
-    const url = `https://www.hadithapi.com/api/hadiths/?apiKey=${process.env.API_KEY}&hadithEnglish=${keyword}`;
+    const url = `https://www.hadithapi.com/api/hadiths/?apiKey=${process.env.API_KEY}&hadithEnglish=${keyword}&paginate=50`;
     try {
-        let response = await axios.get(url);
-        let data = response.data.hadiths.data;
-        const paginationLimit = response.data.hadiths.total
-        const url2 = `https://www.hadithapi.com/api/hadiths/?apiKey=${process.env.API_KEY}&hadithEnglish=${keyword}&paginate=${paginationLimit}`;
-        response = await axios.get(url2)
-        data = response.data.hadiths.data;
+        const response = await axios.get(url);
+        const data = response.data.hadiths.data;
         res.json(data);
     } catch (error) {
         res.status(401)
@@ -62,14 +58,10 @@ const getSearchedHadith = asyncHandler(async (req, res) => {
 const getCollectionsHadith = asyncHandler(async (req, res) => {
     const name = req.params.name;
     const chapter = req.params.chapter;
-    const url = `https://www.hadithapi.com/api/hadiths/?apiKey=${process.env.API_KEY}&book=${name}&chapter=${chapter}`;
     try {
-        let response = await axios.get(url);
-        let data = response.data.hadiths.data;
-        const paginationLimit = response.data.hadiths.total
-        const url2 = `https://www.hadithapi.com/api/hadiths/?apiKey=${process.env.API_KEY}&book=${name}&chapter=${chapter}&paginate=${paginationLimit}`;
-        response = await axios.get(url2)
-        data = response.data.hadiths.data;
+        const url = `https://www.hadithapi.com/api/hadiths/?apiKey=${process.env.API_KEY}&book=${name}&chapter=${chapter}&paginate=50`;
+        const response = await axios.get(url)
+        const data = response.data.hadiths.data;
         res.json(data);
     } catch (error) {
         res.status(401)

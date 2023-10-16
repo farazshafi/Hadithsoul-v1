@@ -25,6 +25,7 @@ const SearchResultPage = () => {
       setLoading(true)
       const { data } = await axios.get(`/api/sunna/getSearchedHadith/${keyword}`)
       setBookName(data)
+      console.log("data Recived successfully")
       setHadith(true)
       setLoading(false)
     } catch (error) {
@@ -74,12 +75,14 @@ const SearchResultPage = () => {
           </>)}
         {hadith && (
           <>
-            {bookName && bookName.map((item) => (
-              <>
+            {bookName && bookName.map((item, index) => (
+              <Box key={index}>
                 {/* Book */}
                 <Box
                   // pl={{ base: "30px", md: "91px", lg: "91px" }}
                   pb={"10px"}
+                  data-aos="fade-up"
+                  data-aos-duration="900"
                 >
                   <Button
                     bg={"white"}
@@ -100,7 +103,7 @@ const SearchResultPage = () => {
                   pb={{ base: "8px", md: "12px", lg: "15px" }}
                   mb={"25px"}
                   data-aos="fade-up"
-                  data-aos-duration="700"
+                  data-aos-duration="900"
 
                 >
                   <Text
@@ -124,8 +127,8 @@ const SearchResultPage = () => {
                   bg={"#1F2125"}
                   pl={{ base: "4%", md: "15%", lg: "15%" }}
                   mb={{ base: "20px", md: "20px", lg: "25px" }}
-                  data-aos="fade-left"
-                  data-aos-duration="700"
+                  data-aos="fade-up"
+                  data-aos-duration="900"
                 >
                   <Text
                     fontFamily={"Inter"}
@@ -147,8 +150,8 @@ const SearchResultPage = () => {
                   pt={{ base: "10px", md: "14px", lg: "18px" }}
                   pb={{ base: "10px", md: "14px", lg: "18px" }}
                   mb={{ base: "15px", md: "20px", lg: "25px" }}
-                  data-aos="fade-right"
-                  data-aos-duration="700"
+                  data-aos="fade-up"
+                  data-aos-duration="900"
                 >
                   <Text
                     color={"black"}
@@ -169,7 +172,10 @@ const SearchResultPage = () => {
                   </Text>
                 </Box>
                 {/* Reference and save to bookmark btn */}
-                <Box>
+                <Box
+                  data-aos="fade-up"
+                  data-aos-duration="900"
+                >
                   <Row>
                     <Col sm={12} md={6}>
                       <Box>
@@ -205,11 +211,10 @@ const SearchResultPage = () => {
                     <BetweenLine />
                   </Row>
                 </Box>
-              </>
+              </Box>
             ))}
           </>
         )}
-
       </Box>
     </>
   )

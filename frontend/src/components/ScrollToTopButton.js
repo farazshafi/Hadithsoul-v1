@@ -30,7 +30,7 @@ const ScrollToTopButton = () => {
   return (
     <button
       onClick={scrollToTop}
-      className={`scroll-to-top-button ${isVisible ? 'visible' : 'hidden'}`}
+      className={"scroll-to-top-button"}
     >
       <i class="fa fa-chevron-up" aria-hidden="true"></i>
     </button>
