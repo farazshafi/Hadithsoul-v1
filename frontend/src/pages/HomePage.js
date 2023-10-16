@@ -5,6 +5,7 @@ import RecentRead from "../components/RecentRead"
 import BetweenLine from '../components/BetweenLine'
 import OtherHadith from '../components/OtherHadith'
 import Collections from '../components/Collections'
+import ScrollToTopButton from '../components/ScrollToTopButton'
 
 const HomePage = () => {
   return (
@@ -16,7 +17,6 @@ const HomePage = () => {
       <BetweenLine />
       <Collections />
       <BetweenLine />
-
     </>
   )
 }

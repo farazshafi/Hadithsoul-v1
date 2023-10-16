@@ -47,7 +47,6 @@ const AboutBook = ({ name }) => {
     }
 
     useEffect(() => {
-        // console.log("params :",name)
         fetchBookname()
     }, []);
 

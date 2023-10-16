@@ -10,11 +10,14 @@ import AboutPage from "./pages/AboutPage";
 import HelpPage from "./pages/HelpPage";
 import Collections from "./components/Collections";
 import SearchResultPage from "./pages/SearchResultPage";
+import ScrollToTopButton from "./components/ScrollToTopButton";
+import "./index.css"
 
 
 function App() {
   return (
     <div className="App">
+      <ScrollToTopButton />
       <Header />
       <Routes>
         <Route exact path='/' element={<HomePage />} />

@@ -16,6 +16,7 @@ const HadithPage = () => {
     const toast = useToast()
     const navigate = useNavigate()
 
+    const [loadingHadith, setLoadingHadith] = useState(false)
     const [loading, setLoading] = useState(false)
     const [hadith, setHadith] = useState([])
     const [bookName, setBookName] = useState([])
@@ -24,11 +25,11 @@ const HadithPage = () => {
 
     const fetchHadith = async () => {
         try {
-            setLoading(true)
+            setLoadingHadith(true)
             const { data } = await axios.get(`/api/sunna/getCollectionsHadith/${name}/book/${chapter}`)
             setHadith(data)
             setOffline(false)
-            setLoading(false)
+            setLoadingHadith(false)
         } catch (error) {
             toast({
                 title: 'Check You Connection.',
@@ -78,6 +79,7 @@ const HadithPage = () => {
                 ) : (
                     <>
                         <Hadiths
+                            loadingHadith={loadingHadith}
                             bookname={bookname}
                             chapter={chapter}
                             loading={loading}

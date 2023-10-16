@@ -3,16 +3,24 @@ import { getCollectionsName, getCollectionsBook, getCollectionsHadith, getSearch
 
 const router = express.Router()
 
+// Get All of imamas
 router.route("/getCollectionsName")
     .get(getCollectionsName)
-    
+
+// Get Books of a imam
 router.route("/getCollectionsBook/:name")
     .get(getCollectionsBook)
 
+// Get Hadith of a Book from imam
 router.route("/getCollectionsHadith/:name/book/:chapter")
     .get(getCollectionsHadith)
 
+// Get Searched Hadith
 router.route("/getSearchedHadith/:keyword")
     .get(getSearchedHadith)
+
+// // Get Searched Hadith
+// router.route("/getSearchedHadith/:keyword")
+//     .get(getSearchedHadith)
 
 export default router

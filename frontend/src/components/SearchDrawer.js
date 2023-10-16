@@ -24,6 +24,7 @@ const SearchDrawer = () => {
 
     const handleSearch = () => {
         navigate(`/search/${keyword}`)
+        onClose()
     }
 
     return (

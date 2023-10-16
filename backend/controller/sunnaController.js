@@ -43,8 +43,12 @@ const getSearchedHadith = asyncHandler(async (req, res) => {
     // const chapter = req.params.chapter;
     const url = `https://www.hadithapi.com/api/hadiths/?apiKey=${process.env.API_KEY}&hadithEnglish=${keyword}`;
     try {
-        const response = await axios.get(url);
-        const data = response.data.hadiths.data;
+        let response = await axios.get(url);
+        let data = response.data.hadiths.data;
+        const paginationLimit = response.data.hadiths.total
+        const url2 = `https://www.hadithapi.com/api/hadiths/?apiKey=${process.env.API_KEY}&hadithEnglish=${keyword}&paginate=${paginationLimit}`;
+        response = await axios.get(url2)
+        data = response.data.hadiths.data;
         res.json(data);
     } catch (error) {
         res.status(401)
@@ -60,8 +64,12 @@ const getCollectionsHadith = asyncHandler(async (req, res) => {
     const chapter = req.params.chapter;
     const url = `https://www.hadithapi.com/api/hadiths/?apiKey=${process.env.API_KEY}&book=${name}&chapter=${chapter}`;
     try {
-        const response = await axios.get(url);
-        const data = response.data.hadiths.data;
+        let response = await axios.get(url);
+        let data = response.data.hadiths.data;
+        const paginationLimit = response.data.hadiths.total
+        const url2 = `https://www.hadithapi.com/api/hadiths/?apiKey=${process.env.API_KEY}&book=${name}&chapter=${chapter}&paginate=${paginationLimit}`;
+        response = await axios.get(url2)
+        data = response.data.hadiths.data;
         res.json(data);
     } catch (error) {
         res.status(401)

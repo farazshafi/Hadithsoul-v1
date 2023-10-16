@@ -8,7 +8,7 @@ import Offline from "../components/Offline"
 
 const ShortProfileImam = ({ profilePage, name }) => {
 
-    const [writerName, setWriterName] = useState("muslim")
+    const [writerName, setWriterName] = useState("")
     const [loading, setLoading] = useState(false)
     const [internet, setInternet] = useState(true)
 
@@ -51,19 +51,35 @@ const ShortProfileImam = ({ profilePage, name }) => {
             >
                 {internet ? (
                     <>
+                        <Box
+                            display={"flex"}
+                        >
+                            <Box ml={"auto"} mr={"auto"}>
+                                <Button
+                                    bg={"#272F33"}
+                                    color={"white"}
+                                    borderRadius={"0px"}
+                                    textAlign={"center"}
+                                    _hover={{ bg: "white", color: "black" }}
+                                    size={{ lg: "lg", md: "md", base: "sm" }}
+                                // fontFamily={"Istok Web"}
+                                >{writerName}
+                                </Button>
+                            </Box>
+                        </Box>
+
                         <Text
                             fontFamily={"Istok Web"}
-                            fontSize={{ base: "20px", md: "25px", lg: "30px" }}
-                            color={"white"}
+                            fontSize={{ base: "15px", md: "25px", lg: "30px" }}
+                            color={"black"}
+                            ml={"auto"}
                             fontWeight={700}
                             textAlign={"center"}
                             mb={0}
-                            textDecoration={"underline"}
+                        // textDecoration={"underline"}
                         >
-                            {loading ? (
+                            {loading && (
                                 <Loader />
-                            ) : (
-                                writerName
                             )}
                         </Text>
                     </>

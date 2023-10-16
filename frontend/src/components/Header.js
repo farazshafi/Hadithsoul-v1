@@ -26,7 +26,7 @@ const Header = () => {
             color={"white"}
             ml={"10px"}
           >
-            <Link href="/" _hover={{textDecoration:"none"}}>
+            <Link href="/" _hover={{ textDecoration: "none" }}>
               Quranicsoul
             </Link>
           </Text>
