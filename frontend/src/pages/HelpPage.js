@@ -2,10 +2,11 @@ import React from 'react'
 import GoBackBtn from '../components/GoBackBtn'
 import { Box, Link, Text } from '@chakra-ui/react'
 import BetweenLine from '../components/BetweenLine'
+import {ChakraProvider} from "@chakra-ui/react"
 
 const HelpPage = () => {
     return (
-        <>
+        <ChakraProvider>
             <GoBackBtn page={"Help"} />
             <Box
                 bg={"#1F2125"}
@@ -153,7 +154,7 @@ const HelpPage = () => {
                     </Text>
                 </Box>
             </Box>
-        </>
+        </ChakraProvider>
     )
 }
 

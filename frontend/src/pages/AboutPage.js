@@ -3,10 +3,11 @@ import React from 'react'
 import GoBackBtn from '../components/GoBackBtn'
 import BetweenLine from '../components/BetweenLine'
 import AboutBgImg from "../images/about.png"
+import {ChakraProvider} from "@chakra-ui/react"
 
 const AboutPage = () => {
     return (
-        <>
+        <ChakraProvider>
             <GoBackBtn page={"About"} />
             <Box
                 textAlign={'center'}
@@ -54,7 +55,7 @@ const AboutPage = () => {
                 </Box>
             </Box>
             <BetweenLine />
-        </>
+        </ChakraProvider>
     )
 }
 

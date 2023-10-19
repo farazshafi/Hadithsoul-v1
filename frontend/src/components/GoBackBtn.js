@@ -1,4 +1,4 @@
-import { Box, Button, Text } from '@chakra-ui/react'
+import { Box, Button, ChakraProvider, Text } from '@chakra-ui/react'
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 
@@ -7,7 +7,7 @@ const GoBackBtn = ({ page, name }) => {
     const navigate = useNavigate()
 
     return (
-        <>
+        <ChakraProvider>
             <Box
                 pl={{ base: "30px", md: "91px", lg: "91px" }}
                 pt={{ base: "15px", md: "30px", lg: "30px" }}
@@ -35,7 +35,7 @@ const GoBackBtn = ({ page, name }) => {
                     Go Back
                 </Button>
             </Box>
-        </>
+        </ChakraProvider>
     )
 }
 

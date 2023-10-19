@@ -33,13 +33,6 @@ const AboutBook = ({ name }) => {
             setLoading(false)
         } catch (error) {
             setInternet(false)
-            // toast({
-            //     title: 'Check You Connection.',
-            //     status: 'error',
-            //     duration: 5000,
-            //     position: "top-left",
-            //     isClosable: true,
-            // })
             console.log(error)
             setLoading(false)
         }
@@ -139,7 +132,7 @@ const AboutBook = ({ name }) => {
                                     </Thead>
                                     <Tbody>
                                         {bookName && bookName.map((book) => (
-                                            <Tr onClick={() => {
+                                            <Tr cursor={"pointer"} onClick={() => {
                                                 navigate(`/collections/${name}/book/${book.chapterEnglish}/${book.chapterNumber}`)
                                             }}>
                                                 <Td key={book.id} color={"white"} textAlign={""}>{book.chapterNumber}</Td>

@@ -2,10 +2,11 @@ import { LinkIcon } from '@chakra-ui/icons'
 import { Box, Link, Text } from '@chakra-ui/react'
 import React from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
+import { ChakraProvider } from "@chakra-ui/react"
 
 const Footer = () => {
   return (
-    <>
+    <ChakraProvider>
       <footer className='' style={{ backgroundColor: "black", paddingTop: "26px", paddingBottom: "26", paddingLeft: "60px", paddingRight: "60px" }}>
         <Box
           pl={{ base: "px", md: "50", lg: "60px" }}
@@ -199,7 +200,7 @@ const Footer = () => {
           </Row>
         </Box>
       </footer>
-    </>
+    </ChakraProvider>
   )
 }
 

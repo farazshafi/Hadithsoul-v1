@@ -42,6 +42,7 @@ const ReadMore = ({ text }) => {
                     bg={"#272F33"}
                     size={{ base: "sm", md: "md", lg: "lg" }}
                     onClick={toggleText}
+                    _hover={{color:"white",bgColor:"black"}}
                 >
                     {showFullText ? "Show Less" : "Read More"}
                 </Button>

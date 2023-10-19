@@ -6,10 +6,11 @@ import BetweenLine from '../components/BetweenLine'
 import OtherHadith from '../components/OtherHadith'
 import Collections from '../components/Collections'
 import ScrollToTopButton from '../components/ScrollToTopButton'
+import { ChakraProvider } from "@chakra-ui/react"
 
 const HomePage = () => {
   return (
-    <>
+    <ChakraProvider>
       <HomePageInput />
       {/* <RecentRead />
       <BetweenLine /> */}
@@ -17,7 +18,7 @@ const HomePage = () => {
       <BetweenLine />
       <Collections />
       <BetweenLine />
-    </>
+    </ChakraProvider>
   )
 }
 

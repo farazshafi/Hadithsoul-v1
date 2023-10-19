@@ -12,15 +12,12 @@ router.route("/getCollectionsBook/:name")
     .get(getCollectionsBook)
 
 // Get Hadith of a Book from imam
-router.route("/getCollectionsHadith/:name/book/:chapter")
+router.route("/getCollectionsHadith/:name/book/:chapter/:page")
     .get(getCollectionsHadith)
 
 // Get Searched Hadith
-router.route("/getSearchedHadith/:keyword")
+router.route("/getSearchedHadith/:keyword/:page")
     .get(getSearchedHadith)
 
-// // Get Searched Hadith
-// router.route("/getSearchedHadith/:keyword")
-//     .get(getSearchedHadith)
 
 export default router

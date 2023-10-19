@@ -18,9 +18,9 @@ const ShortProfileImam = ({ profilePage, name }) => {
     const getCollectionsDetails = async () => {
         try {
             setLoading(true)
-            const { data } = await axios.get(`/api/sunna/getCollectionsHadith/${name}/book/1`)
+            const { data } = await axios.get(`/api/sunna/getCollectionsHadith/${name}/book/1/1`)
             setInternet(true)
-            const writername = data[0].book.writerName
+            const writername = data.data[0].book.writerName
             setWriterName(writername)
             setLoading(false)
         } catch (error) {

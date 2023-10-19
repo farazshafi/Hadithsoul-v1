@@ -7,6 +7,7 @@ import BetweenLine from './BetweenLine'
 import GoBackBtn from './GoBackBtn'
 import axios from "axios"
 import Loader from "../components/Loader"
+import {ChakraProvider} from "@chakra-ui/react"
 import Offline from "../components/Offline"
 // import Lottie from "lottie-react"
 // import animationLoading from "../animations/loading.json"
@@ -51,7 +52,7 @@ const Collections = ({ directcall }) => {
         // marginLeft: 0
     }
     return (
-        <>
+        <ChakraProvider>
             {directcall && (
                 <>
                     <GoBackBtn page={"Collections"} />
@@ -110,7 +111,7 @@ const Collections = ({ directcall }) => {
             {directcall && (
                 <BetweenLine />
             )}
-        </>
+        </ChakraProvider>
     )
 }
 

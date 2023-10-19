@@ -4,10 +4,11 @@ import { HamburgerIcon, SearchIcon, SunIcon } from "@chakra-ui/icons"
 import { Avatar } from '@chakra-ui/react'
 import SearchDrawer from './SearchDrawer'
 import MoreDrawer from './MoreDrawer'
+import {ChakraProvider} from "@chakra-ui/react"
 
 const Header = () => {
   return (
-    <>
+    <ChakraProvider>
       <header>
         <Box
           bg={'#242424'}
@@ -62,7 +63,7 @@ const Header = () => {
           </Box>
         </Box>
       </header>
-    </>
+    </ChakraProvider>
   )
 }
 
