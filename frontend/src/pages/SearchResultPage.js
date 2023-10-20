@@ -70,8 +70,8 @@ const SearchResultPage = () => {
         <HomePageInput />
         <GoBackBtn page={"Search"} />
         <Box
-          pl={{ base: "30px", md: "91px", lg: "91px" }}
-          pr={{ base: "30px", md: "91px", lg: "91px" }}
+          pl={{ base: "5%", md: "91px", lg: "91px" }}
+          pr={{ base: "5%", md: "91px", lg: "91px" }}
           // pb={"40px"}
           bg={"#1F2125"}
         >
@@ -116,7 +116,7 @@ const SearchResultPage = () => {
                       color={"black"}
                       borderRadius={"0px"}
                       _hover={{ bg: "#272F33", color: "white" }}
-                      onClick={() => { 
+                      onClick={() => {
                         navigate(`/collections/${item.book.bookSlug}`)
                       }}
                       size={{ lg: "lg", md: "md", base: "sm" }}
@@ -178,8 +178,8 @@ const SearchResultPage = () => {
                     pl={{ base: "10px", md: "20px", lg: "30px" }}
                     pr={{ base: "4%", md: "15%", lg: "15%" }}
                     pt={{ base: "10px", md: "14px", lg: "18px" }}
-                    pb={{ base: "10px", md: "14px", lg: "18px" }}
-                    mb={{ base: "15px", md: "20px", lg: "25px" }}
+                    // pb={{ base: "1px", md: "14px", lg: "18px" }}
+                    mb={{ base: "10px", md: "20px", lg: "25px" }}
                     data-aos="fade-up"
                     data-aos-duration="900"
                   >
@@ -218,8 +218,8 @@ const SearchResultPage = () => {
                           <Text
                             color={"white"}
                           >
-                            {/* <text style={{ fontFamily: "Istok Web", fontSize: { lg: "18px", md: "", base: "5px" } }}>In-book reference : </text> */}
-                            {/* <text style={{ fontFamily: "Inter", fontSize: { lg: "15px", md: "13px", base: "10px" } }}>{item.chapter.chapterNumber} , Hadith 30</text> */}
+                            <text style={{ fontFamily: "Istok Web", fontSize: { lg: "18px", md: "", base: "5px" } }}>In-book reference : </text>
+                            <text style={{ fontFamily: "Inter", fontSize: { lg: "15px", md: "13px", base: "10px" } }}>Book {item.chapter.chapterNumber}</text>
                           </Text>
                         </Box>
                       </Col>
@@ -247,18 +247,16 @@ const SearchResultPage = () => {
           )}
         </Box>
       </ChakraProvider>
-      <Container>
-        <MuiBox
-          display={"flex"}
-          alignItems={"center"}
-          justifyContent={"center"}
-          pt={"10px"}
-          pb={"10px"}
-          bgcolor={"white"}
-        >
-          <Pagination color='primary' count={lastpage} page={page} onChange={handleChange} />
-        </MuiBox>
-      </Container>
+      <MuiBox
+        display={"flex"}
+        alignItems={"center"}
+        justifyContent={"center"}
+        pt={"10px"}
+        pb={"10px"}
+        bgcolor={"white"}
+      >
+        <Pagination color='primary' count={lastpage} page={page} onChange={handleChange} />
+      </MuiBox>
     </>
 
   )

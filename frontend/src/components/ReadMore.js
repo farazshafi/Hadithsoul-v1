@@ -38,6 +38,7 @@ const ReadMore = ({ text }) => {
             <p dangerouslySetInnerHTML={{ __html: textToShow }} />
             {text.length > maxCharacters && (
                 <Button
+                mb={"10px"}
                     color={"white"}
                     bg={"#272F33"}
                     size={{ base: "sm", md: "md", lg: "lg" }}

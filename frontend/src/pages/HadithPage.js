@@ -29,6 +29,7 @@ const HadithPage = () => {
     const [page, setPage] = useState(1);
     const [totalItems, setTotalItems] = useState(Number);
     const [from, setFrom] = useState(Number);
+    const [to, setTo] = useState(Number);
 
     const fetchHadith = async () => {
         try {
@@ -38,6 +39,7 @@ const HadithPage = () => {
             setTotalItems(data.totalItems)
             setFrom(data.from)
             setLastPage(data.lastPage)
+            setTo(data.to)
             setOffline(false)
             setLoadingHadith(false)
         } catch (error) {
@@ -90,8 +92,8 @@ const HadithPage = () => {
                 <GoBackBtn page={"Hadith"} name={name} />
                 <Box
                     bg={"#1F2125"}
-                    pl={{ base: "20px", md: "50px", lg: "108px" }}
-                    pr={{ base: "20px", md: "50px", lg: "108px" }}
+                    pl={{ base: "5%", md: "50px", lg: "108px" }}
+                    pr={{ base: "5%", md: "50px", lg: "108px" }}
                 >
                     {offline ? (
                         <Offline />
@@ -103,13 +105,15 @@ const HadithPage = () => {
                                 chapter={chapter}
                                 loading={loading}
                                 data={hadith}
+                                from={from}
+                                totalItems={totalItems}
+                                to={to}
                             />
                         </>
                     )
                     }
                 </Box >
             </ChakraProvider>
-            <Container>
                 <MuiBox
                     display={"flex"}
                     alignItems={"center"}
@@ -120,7 +124,6 @@ const HadithPage = () => {
                 >
                     <Pagination color='primary' count={lastpage} page={page} onChange={handleChange} />
                 </MuiBox>
-            </Container>
         </>
 
     )

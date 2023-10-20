@@ -67,13 +67,14 @@ const getCollectionsHadith = asyncHandler(async (req, res) => {
         const url = `https://www.hadithapi.com/api/hadiths/?apiKey=${process.env.API_KEY}&book=${name}&chapter=${chapter}&paginate=${pagination}&page=${page}`;
         const response = await axios.get(url)
         const data = response.data.hadiths.data;
-        const totalItems = response.data.hadiths.total;
-        const from = response.data.hadiths.from;
-        const lastPage = response.data.hadiths.last_page;
-        res.json({ data, totalItems, from, lastPage });
+        const totalItems = Number(response.data.hadiths.total);
+        const from = Number(response.data.hadiths.data[0].hadithNumber);
+        const lastPage = response.data.hadiths.last_page
+        const to = (totalItems + from) - 1;
+        res.json({ data, totalItems, from, to, lastPage });
     } catch (error) {
         res.status(401)
-        throw new Error("Check your Url.")
+        throw new Error("Check your Url.", error)
     }
 });
 

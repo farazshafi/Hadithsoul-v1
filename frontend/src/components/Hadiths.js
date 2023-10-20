@@ -1,17 +1,24 @@
 import React from 'react'
 import { Col, Row } from 'react-bootstrap'
 import BetweenLine from '../components/BetweenLine'
-import { Box, Button, Center, Text } from '@chakra-ui/react'
 import Loader from './Loader'
 import ReadMore from "../components/ReadMore"
+import {
+    Box,
+    Text,
+    Table,
+    Thead,
+    Tbody,
+    Tr,
+    Th,
+    Td,
+} from '@chakra-ui/react'
 
-
-const Hadiths = ({ data, loading, bookname, chapter, loadingHadith }) => {
+const Hadiths = ({ data, loading, bookname, chapter, loadingHadith, from , totalItems ,to }) => {
 
     return (
         <>
             {/* Book name */}
-
             <Box
                 bg={"#1F2125"}
                 textAlign={"center"}
@@ -28,6 +35,41 @@ const Hadiths = ({ data, loading, bookname, chapter, loadingHadith }) => {
                     <span><i style={{ marginLeft: "10px" }} class="fa-solid fa-book"></i></span>
                     <span style={{ marginLeft: "10px" }}>: {bookname}</span>
                 </Text>
+                <Box
+                    pl={{ base: "25px", md: "91px", lg: "50%" }}
+                    pr={{ base: "25px", md: "91px", lg: "50%" }}
+                    pt={{ base: "30px", md: "78px", lg: "78px" }}
+                >
+
+                    <Box
+                    display={"flex"}
+                    alignItems={"center"}
+                    justifyContent={"center"}
+                    >
+                        <Box
+                            bg={"#242424"}
+                        >
+                            <Table border={"solid"} bgColor={""} size={{ base: "sm", md: "md", lg: "lg" }}>
+                                {loading ? (
+                                    <Loader />
+                                ) : (<>
+                                    <Thead>
+                                        <Tr>
+                                            <Th color={"white"} textAlign={""}>From</Th>
+                                            <Th color={"white"} textAlign={""}>TO</Th>
+                                        </Tr>
+                                    </Thead>
+                                    <Tbody>
+                                        <Td color={"white"} textAlign={""}>{from}</Td>
+                                        <Td color={"white"} textAlign={""}>{to}</Td>
+                                    </Tbody>
+                                </>)}
+
+                            </Table>
+                        </Box>
+                    </Box>
+                </Box>
+
             </Box>
             <BetweenLine />
             {loadingHadith ? <Loader /> : (
@@ -88,7 +130,6 @@ const Hadiths = ({ data, loading, bookname, chapter, loadingHadith }) => {
                                 pl={{ base: "10px", md: "20px", lg: "30px" }}
                                 pr={{ base: "4%", md: "15%", lg: "15%" }}
                                 pt={{ base: "10px", md: "14px", lg: "18px" }}
-                                pb={{ base: "10px", md: "14px", lg: "18px" }}
                                 mb={{ base: "15px", md: "20px", lg: "25px" }}
                             >
                                 <Text
