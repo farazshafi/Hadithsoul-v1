@@ -2,7 +2,7 @@ import { Box, Button, ChakraProvider, Text } from '@chakra-ui/react'
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 
-const GoBackBtn = ({ page, name }) => {
+const GoBackBtn = ({ page, name, bookname, }) => {
 
     const navigate = useNavigate()
 
@@ -24,6 +24,7 @@ const GoBackBtn = ({ page, name }) => {
                             page === "About" && navigate("/")
                             page === "Home" && navigate("/")
                             page === "Search" && navigate("/")
+                            page === "SingleHadithPage" && navigate(`/collections/${name}/book/${bookname}/1`)
                         }
                     }}
                     size={{ base: "sm", md: "md", lg: "lg" }}

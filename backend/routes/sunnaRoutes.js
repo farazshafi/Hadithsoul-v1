@@ -1,5 +1,11 @@
 import express from "express"
-import { getCollectionsName, getCollectionsBook, getCollectionsHadith, getSearchedHadith } from "../controller/sunnaController.js"
+import {
+    getCollectionsName,
+    getCollectionsBook,
+    getCollectionsHadith,
+    getSearchedHadith,
+    getHadithByNumber
+} from "../controller/sunnaController.js"
 
 const router = express.Router()
 
@@ -18,6 +24,10 @@ router.route("/getCollectionsHadith/:name/book/:chapter/:page")
 // Get Searched Hadith
 router.route("/getSearchedHadith/:keyword/:page")
     .get(getSearchedHadith)
+
+// Get Hadith by Hadith Number  
+router.route("/getHadithByNumber/:name/:chapter/:number")
+    .get(getHadithByNumber)
 
 
 export default router

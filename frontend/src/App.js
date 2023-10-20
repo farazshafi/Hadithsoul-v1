@@ -10,6 +10,7 @@ import AboutPage from "./pages/AboutPage";
 import HelpPage from "./pages/HelpPage";
 import Collections from "./components/Collections";
 import SearchResultPage from "./pages/SearchResultPage";
+import SingleHadithPage from "./pages/SingleHadithPage";
 import ScrollToTopButton from "./components/ScrollToTopButton";
 import "./index.css"
 
@@ -28,6 +29,7 @@ function App() {
         <Route path='/search/:keyword' element={<SearchResultPage />} />
         <Route path='/about' element={<AboutPage />} />
         <Route path='/help' element={<HelpPage />} />
+        <Route path='/hadithpage/:name/:chapter/:hadithNum/:from/:to' element={<SingleHadithPage />} />
       </Routes>
       <Footer />
     </div>

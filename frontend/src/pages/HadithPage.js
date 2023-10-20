@@ -108,6 +108,7 @@ const HadithPage = () => {
                                 from={from}
                                 totalItems={totalItems}
                                 to={to}
+                                name={name}
                             />
                         </>
                     )

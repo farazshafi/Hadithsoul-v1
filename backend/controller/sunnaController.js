@@ -78,4 +78,23 @@ const getCollectionsHadith = asyncHandler(async (req, res) => {
     }
 });
 
-export { getCollectionsName, getCollectionsBook, getCollectionsHadith, getSearchedHadith };
+// @desc    Get collections Hadith
+// @route   GET /api/sunna/getHadithByNumber/:name/:chapter/:number
+// @access  Public
+const getHadithByNumber = asyncHandler(async (req, res) => {
+    const number = req.params.number;
+    const chapter = req.params.chapter;
+    const name = req.params.name;
+    const pagination = 25;
+    try {
+        const url = `https://www.hadithapi.com/api/hadiths/?apiKey=${process.env.API_KEY}&book=${name}&chapter=${chapter}&hadithNumber=${number}`;
+        const response = await axios.get(url)
+        const data = response.data.hadiths.data[0];
+        res.json(data);
+    } catch (error) {
+        res.status(401)
+        throw new Error("Check your Url.", error)
+    }
+});
+
+export { getCollectionsName, getCollectionsBook, getCollectionsHadith, getSearchedHadith, getHadithByNumber };
