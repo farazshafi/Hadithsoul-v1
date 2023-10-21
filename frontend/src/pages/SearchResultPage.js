@@ -94,6 +94,7 @@ const SearchResultPage = () => {
                   fontFamily={"Inter"}
                   fontSize={{ lg: "30px", md: "25px", sm: "10px" }}
                   mb={0}
+                  color={"white"}
                   pb={{ base: "15px", md: "30px", lg: "40px" }}
                 >
                   Hadith Not Found

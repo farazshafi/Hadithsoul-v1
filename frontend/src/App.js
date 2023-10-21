@@ -29,7 +29,7 @@ function App() {
         <Route path='/search/:keyword' element={<SearchResultPage />} />
         <Route path='/about' element={<AboutPage />} />
         <Route path='/help' element={<HelpPage />} />
-        <Route path='/hadithpage/:name/:chapter/:hadithNum/:from/:to' element={<SingleHadithPage />} />
+        <Route path='/hadithpage/:name/:chapter/:hadithNum/:from/:to/:bookname' element={<SingleHadithPage />} />
       </Routes>
       <Footer />
     </div>

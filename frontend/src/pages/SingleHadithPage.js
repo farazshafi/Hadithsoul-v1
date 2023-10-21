@@ -13,6 +13,7 @@ const SingleHadithPage = () => {
   const chapter = params.chapter
   const name = params.name
   const hadithNum = params.hadithNum
+  const book = params.bookname
   const from = params.from
   const to = params.to
   const toast = useToast()
@@ -20,8 +21,7 @@ const SingleHadithPage = () => {
 
   const [loading, setLoading] = useState(false)
   const [result, setResult] = useState()
-  const [bookname, setBookname] = useState("")
-  const [hadithNumber, setHadithNumber] = useState(Number)
+  const [hadithNumber, setHadithNumber] = useState()
 
 
   const fetchHadith = async () => {
@@ -30,7 +30,6 @@ const SingleHadithPage = () => {
       const { data } = await axios.get(`/api/sunna/getHadithByNumber/${name}/${chapter}/${hadithNum}`)
       setResult(data)
       console.log(data)
-      setBookname(data.chapter.chapterEnglish)
       setLoading(false)
     } catch (error) {
       console.log(error.data)
@@ -40,9 +39,10 @@ const SingleHadithPage = () => {
   }
 
   const handleHadithSearch = async () => {
-    if (hadithNum > to || hadithNum < from || hadithNum == undefined) {
+    setHadithNumber("")
+    if (hadithNumber > to || hadithNumber < from || hadithNumber == undefined) {
       toast({
-        title: `Not Found ${hadithNum} Hadith`,
+        title: `Not Found ${hadithNumber} Hadith`,
         description: `Enter between ${from}- ${to}`,
         status: 'error',
         duration: 5000,
@@ -51,16 +51,14 @@ const SingleHadithPage = () => {
       })
     } else {
       try {
-        navigate(`/hadithpage/${name}/${chapter}/${hadithNum}/${from}/${to}`)
+        setLoading(true)
+        const { data } = await axios.get(`/api/sunna/getHadithByNumber/${name}/${chapter}/${hadithNumber}`)
+        setResult(data)
+        console.log(data)
+        setLoading(false)
       } catch (error) {
-        toast({
-          title: `Reload Again`,
-          status: 'error',
-          duration: 5000,
-          position: "top-left",
-          isClosable: true,
-        })
         console.log(error.data)
+        setLoading(false)
       }
     }
 
@@ -72,7 +70,7 @@ const SingleHadithPage = () => {
 
   return (
     <ChakraProvider>
-      <GoBackBtn bookname={bookname} name={name} page={"SingleHadithPage"} />
+      <GoBackBtn chapter={chapter} bookname={book} name={name} page={"SingleHadithPage"} />
       <Box
         bg={"#1F2125"}
         textAlign={"center"}
@@ -87,7 +85,7 @@ const SingleHadithPage = () => {
         >
           <span>{chapter}</span>
           <span><i style={{ marginLeft: "10px" }} class="fa-solid fa-book"></i></span>
-          <span style={{ marginLeft: "10px" }}>{bookname}</span>
+          <span style={{ marginLeft: "10px" }}>{book}</span>
         </Text>
         <Box
           pl={{ base: "25px", md: "91px", lg: "50%" }}
@@ -121,7 +119,7 @@ const SingleHadithPage = () => {
               <Box>
                 <Input
                   onChange={(e) => setHadithNumber(e.target.value)}
-                  value={hadithNum}
+                  value={hadithNumber}
                   type='number'
                   placeholder='Enter Hadith number'
                   bgColor={"#D9D9D9"}

@@ -40,7 +40,7 @@ const Hadiths = ({ data, loading, bookname, chapter, loadingHadith, from, to, na
                 isClosable: true,
             })
         } else {
-            navigate(`/hadithpage/${name}/${chapter}/${hadithNum}/${from}/${to}`)
+            navigate(`/hadithpage/${name}/${chapter}/${hadithNum}/${from}/${to}/${bookname}`)
         }
 
     }
