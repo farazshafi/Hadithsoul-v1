@@ -31,7 +31,7 @@ const SearchDrawer = () => {
         <>
             <SearchIcon
                 color={"white"}
-                boxSize={8}
+                boxSize={{lg:8,md:6,base:5}}
                 onClick={onOpen}
                 ref={btnRef}
             />

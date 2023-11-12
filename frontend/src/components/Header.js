@@ -42,19 +42,6 @@ const Header = () => {
             /> */}
           </Box>
 
-
-          {/* Avatar */}
-          {/* <Box
-            ml={{ base: "17px", md: "23px", lg: "25px" }}
-          >
-            <Wrap>
-              <WrapItem>
-                <Avatar
-                  size={"sm"}
-                  name='Dan Abrahmov' src='https://bit.ly/dan-abramov' />
-              </WrapItem>
-            </Wrap>
-          </Box> */}
           {/* search btn */}
           <Box
             ml={{ base: "17px", md: "23px", lg: "25px" }}

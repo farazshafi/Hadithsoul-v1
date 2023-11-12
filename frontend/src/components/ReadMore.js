@@ -38,12 +38,12 @@ const ReadMore = ({ text }) => {
             <p dangerouslySetInnerHTML={{ __html: textToShow }} />
             {text.length > maxCharacters && (
                 <Button
-                mb={"10px"}
+                    // mb={"10px"}
                     color={"white"}
                     bg={"#272F33"}
-                    size={{ base: "sm", md: "md", lg: "lg" }}
+                    size={{ base: "xs", md: "sm", lg: "md" }}
                     onClick={toggleText}
-                    _hover={{color:"white",bgColor:"black"}}
+                    _hover={{ color: "white", bgColor: "black" }}
                 >
                     {showFullText ? "Show Less" : "Read More"}
                 </Button>

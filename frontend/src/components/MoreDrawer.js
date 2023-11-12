@@ -145,6 +145,26 @@ const MoreDrawer = () => {
                             >
                                 COMING SOON :</Text>
                         </Box>
+                        {/* Track Readings */}
+                        <Box
+                            borderBottom={"1px"}
+                            _hover={{ color: "#181D31" }}
+                            display={"flex"}
+                            textAlign={"center"}
+                            pt={"3px"}
+                            pb={"3px"}
+                            mb={"10px"}
+                        >
+                            <Link display={"flex"} href='/about'>
+                                <i style={{ marginTop: "3px", }} class="fa-solid fa-clock-rotate-left"></i>
+                                <Text
+                                    fontFamily={"Istok Web"}
+                                    fontSize={{ lg: "lg", sm: "sm" }}
+                                    marginBottom={"0"}
+                                    ml={"5px"}
+                                >recent read</Text>
+                            </Link>
+                        </Box>
                         {/* Feedback */}
                         <Box
                             borderBottom={"1px"}

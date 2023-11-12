@@ -14,7 +14,7 @@ const HomePage = () => {
       <HomePageInput />
       {/* <RecentRead />
       <BetweenLine /> */}
-      <OtherHadith />
+      {/* <OtherHadith /> */}
       <BetweenLine />
       <Collections />
       <BetweenLine />

@@ -178,6 +178,7 @@ const Hadiths = ({ data, loading, bookname, chapter, loadingHadith, from, to, na
                             pl={{ base: "10px", md: "20px", lg: "30px" }}
                             pr={{ base: "4%", md: "15%", lg: "15%" }}
                             pt={{ base: "10px", md: "14px", lg: "18px" }}
+                            pb={{ base: "5px", md: "14px", lg: "18px" }}
                             mb={{ base: "15px", md: "20px", lg: "25px" }}
                         >
                             <Text

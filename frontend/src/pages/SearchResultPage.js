@@ -179,7 +179,7 @@ const SearchResultPage = () => {
                     pl={{ base: "10px", md: "20px", lg: "30px" }}
                     pr={{ base: "4%", md: "15%", lg: "15%" }}
                     pt={{ base: "10px", md: "14px", lg: "18px" }}
-                    // pb={{ base: "1px", md: "14px", lg: "18px" }}
+                    pb={{ base: "5px", md: "14px", lg: "18px" }}
                     mb={{ base: "10px", md: "20px", lg: "25px" }}
                     data-aos="fade-up"
                     data-aos-duration="900"
