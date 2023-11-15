@@ -28,7 +28,7 @@ const Header = () => {
             ml={"10px"}
           >
             <Link href="/" _hover={{ textDecoration: "none" }}>
-              Quranicsoul
+              Hadithsoul
             </Link>
           </Text>
           {/* ToggleColorMode */}

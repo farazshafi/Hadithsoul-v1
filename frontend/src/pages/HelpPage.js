@@ -21,7 +21,7 @@ const HelpPage = () => {
                     color={"white"}
                     textAlign={"center"}
                 >
-                    Quranicsoul Help Center
+                    Hadithsoul Help Center
                 </Text>
                 <BetweenLine />
                 <Text
@@ -141,7 +141,7 @@ const HelpPage = () => {
                         fontSize={{ lg: "15px", base: "10px", md: "13px" }}
                         color={"white"}
                     >
-                        If you have any further questions or need assistance, feel free to reach out to our support team at <Link fontWeight={700}>teamquranicsoul@gmail.com</Link>  We are here to help you and ensure you have a fulfilling experience on QuranicSoul.
+                        If you have any further questions or need assistance, feel free to reach out to our support team at <Link fontWeight={700}>teamHadithsoul@gmail.com</Link>  We are here to help you and ensure you have a fulfilling experience on Hadithsoul.
                     </Text>
                     <Text
                         fontFamily={"Istok Web"}
@@ -150,7 +150,7 @@ const HelpPage = () => {
                         color={"white"}
                         mb={0}
                     >
-                        Thank you for being a part of the QuranicSoul community!
+                        Thank you for being a part of the Hadithsoul community!
                     </Text>
                 </Box>
             </Box>

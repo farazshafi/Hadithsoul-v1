@@ -30,8 +30,7 @@ const Footer = () => {
                   fontWeight={400}
                   color={"white"}
                 >
-                  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,
-                </Text>
+                  Welcome to QuranicSoul - Your sanctuary of authentic Hadith! Explore the wisdom of Prophet Muhammad (peace be upon him) through sacred traditions. Special thanks to sunnah.com for their API support. Delve into the six esteemed Hadith collections and over 40 narrations, including Qudsi Hadith. Let these divine teachings enlighten your soul as we strive for unity and compassion in our journey of faith.                </Text>
                 <Box
                   height={"5px"}
                   width={"100%"}

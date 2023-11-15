@@ -40,9 +40,9 @@ const AboutPage = () => {
                         // bgColor={"whiteAlpha.100"}
                         color={"whiteAlpha.700"}
                     >
-                        Welcome to QuranicSoul - a sanctuary of authentic Hadith!
+                        Welcome to Hadithsoul - a sanctuary of authentic Hadith!
 
-                        At QuranicSoul, we dedicate ourselves to spreading the teachings of the Prophet Muhammad (peace be upon him) through the wisdom encapsulated in Hadith, the sacred traditions and sayings. Our mission is to make the authentic Hadith accessible to all, fostering spiritual growth and understanding among our brothers.
+                        At Hadithsoul, we dedicate ourselves to spreading the teachings of the Prophet Muhammad (peace be upon him) through the wisdom encapsulated in Hadith, the sacred traditions and sayings. Our mission is to make the authentic Hadith accessible to all, fostering spiritual growth and understanding among our brothers.
 
                         We extend our heartfelt gratitude to sunnah.com for graciously sharing their API, enabling us to curate and deliver a wealth of authentic Hadith to our audience.
 

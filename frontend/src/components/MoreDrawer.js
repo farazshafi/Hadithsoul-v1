@@ -43,7 +43,7 @@ const MoreDrawer = () => {
                 <DrawerOverlay />
                 <DrawerContent>
                     <DrawerCloseButton />
-                    <DrawerHeader>Quranicsoul.com</DrawerHeader>
+                    <DrawerHeader>Hadithsoul.com</DrawerHeader>
                     <DrawerBody>
                         <Box
                         // borderBottom={"1px"}
