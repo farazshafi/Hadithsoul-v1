@@ -199,7 +199,7 @@ const SearchResultPage = () => {
                       fontFamily={"Inter"}
                       fontWeight={400}
                     >
-                      <ReadMore text={item.hadithEnglish} />
+                      <ReadMore text={item.hadithEnglish} keyword={keyword} />
                     </Text>
                   </Box>
                   {/* Reference and save to bookmark btn */}
