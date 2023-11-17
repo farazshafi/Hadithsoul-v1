@@ -15,7 +15,13 @@ const Footer = () => {
   const [names, setNames] = useState([])
 
   useEffect(() => {
-    getnames()
+    // Check if data is already present in localStorage
+    const storedCollection = localStorage.getItem("collections")
+    if (storedCollection) {
+      setNames(JSON.parse(storedCollection))
+    } else {
+      getnames()
+    }
   }, [])
 
 

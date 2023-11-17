@@ -7,10 +7,9 @@ import BetweenLine from './BetweenLine'
 import GoBackBtn from './GoBackBtn'
 import axios from "axios"
 import Loader from "../components/Loader"
-import {ChakraProvider} from "@chakra-ui/react"
+import { ChakraProvider } from "@chakra-ui/react"
 import Offline from "../components/Offline"
-// import Lottie from "lottie-react"
-// import animationLoading from "../animations/loading.json"
+
 
 const Collections = ({ directcall }) => {
     const [collections, setCollections] = useState([])
@@ -25,8 +24,9 @@ const Collections = ({ directcall }) => {
             setLoading(true)
             const { data } = await axios.get("/api/sunna/getCollectionsName")
             setInternet(true)
-            // console.log(data[0].bookName)
             setCollections(data)
+            // Save to localStorage for future visits
+            localStorage.setItem('collections', JSON.stringify(data))
             setLoading(false)
         } catch (error) {
             setInternet(false)
@@ -41,16 +41,18 @@ const Collections = ({ directcall }) => {
             setLoading(false)
         }
     }
-    useEffect(() => {
-        getCollectionsName()
-    }, []);
 
-    // lottie styles
-    const lottieStyleLoading = {
-        width: "100%",
-        // marginBottom: 5,
-        // marginLeft: 0
-    }
+    useEffect(() => {
+        // Check if data is already present in localStorage
+        const storedCollections = localStorage.getItem('collections');
+        if (storedCollections) {
+            setCollections(JSON.parse(storedCollections));
+        } else {
+            // If not, make the API call
+            getCollectionsName();
+        }
+    }, []);
+    
     return (
         <ChakraProvider>
             {directcall && (
@@ -90,7 +92,7 @@ const Collections = ({ directcall }) => {
                                             onClick={() => navigate(`/collections/${imam.bookSlug}`)}
                                             mt={"15px"}
                                             width={"100%"}
-                                            _hover={{bgColor:"#272F33",color:"white"}}
+                                            _hover={{ bgColor: "#272F33", color: "white" }}
                                             color={"blackAlpha.800"}
                                             bgColor={"#D9D9D9"}
                                             variant={"solid"}

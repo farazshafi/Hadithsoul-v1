@@ -6,7 +6,6 @@ import {
     Tr,
     Th,
     Td,
-    TableContainer,
     useToast,
 } from '@chakra-ui/react'
 import axios from 'axios'
@@ -28,6 +27,43 @@ const AboutBook = ({ name }) => {
         try {
             setLoading(true)
             const { data } = await axios.get(`/api/sunna/getCollectionsBook/${name}`)
+
+            if (name === "sahih-bukhari") {
+                localStorage.setItem("bukhari-books", JSON.stringify(data))
+            }
+
+            if (name === "sahih-muslim") {
+                localStorage.setItem("muslim-books", JSON.stringify(data))
+            }
+
+            if (name === "al-tirmidhi") {
+                localStorage.setItem("tirmidhi-books", JSON.stringify(data))
+            }
+
+            if (name === "abu-dawood") {
+                localStorage.setItem("dawood-books", JSON.stringify(data))
+            }
+
+            if (name === "ibn-e-majah") {
+                localStorage.setItem("majah-books", JSON.stringify(data))
+            }
+
+            if (name === "sunan-nasai") {
+                localStorage.setItem("nasai-books", JSON.stringify(data))
+            }
+
+            if (name === "mishkat") {
+                localStorage.setItem("mishkat-books", JSON.stringify(data))
+            }
+
+            if (name === "musnad-ahmad") {
+                localStorage.setItem("ahmad-books", JSON.stringify(data))
+            }
+
+            if (name === "al-silsila-sahiha") {
+                localStorage.setItem("sahiha-books", JSON.stringify(data))
+            }
+
             setInternet(true)
             setBookName(data)
             setLoading(false)
@@ -40,71 +76,73 @@ const AboutBook = ({ name }) => {
     }
 
     useEffect(() => {
-        fetchBookname()
+        const storedBukhariBooks = JSON.parse(localStorage.getItem("bukhari-books"))
+        const storedMuslimBooks = JSON.parse(localStorage.getItem("muslim-books"))
+        const storedTirmidhiBooks = JSON.parse(localStorage.getItem("tirmidhi-books"))
+        const storedDawoodBooks = JSON.parse(localStorage.getItem("dawood-books"))
+        const storedMajahBooks = JSON.parse(localStorage.getItem("majah-books"))
+        const storedNasaiBooks = JSON.parse(localStorage.getItem("nasai-books"))
+        const storedMishkatBooks = JSON.parse(localStorage.getItem("mishkat-books"))
+        const storedAhmadBooks = JSON.parse(localStorage.getItem("ahmad-books"))
+        const storedSahihaBooks = JSON.parse(localStorage.getItem("sahiha-books"))
+
+        if (name === "sahih-bukhari") {
+            if (storedBukhariBooks) {
+                setBookName(storedBukhariBooks)
+            } else fetchBookname()
+        }
+
+        if (name === "sahih-muslim") {
+            if (storedMuslimBooks) {
+                setBookName(storedMuslimBooks)
+            } else fetchBookname()
+        }
+
+        if (name === "al-tirmidhi") {
+            if (storedTirmidhiBooks) {
+                setBookName(storedTirmidhiBooks)
+            } else fetchBookname()
+        }
+
+        if (name === "abu-dawood") {
+            if (storedDawoodBooks) {
+                setBookName(storedDawoodBooks)
+            } else fetchBookname()
+        }
+
+        if (name === "ibn-e-majah") {
+            if (storedMajahBooks) {
+                setBookName(storedMajahBooks)
+            } else fetchBookname()
+        }
+
+        if (name === "sunan-nasai") {
+            if (storedNasaiBooks) {
+                setBookName(storedNasaiBooks)
+            } else fetchBookname()
+        }
+
+        if (name === "mishkat") {
+            if (storedMishkatBooks) {
+                setBookName(storedMishkatBooks)
+            } else fetchBookname()
+        }
+
+        if (name === "musnad-ahmad") {
+            if (storedAhmadBooks) {
+                setBookName(storedAhmadBooks)
+            } else fetchBookname()
+        }
+
+        if (name === "al-silsila-sahiha") {
+            if (storedSahihaBooks) {
+                setBookName(storedSahihaBooks)
+            } else fetchBookname()
+        }
     }, []);
 
     return (
         <>
-            {/* option two */}
-            {/* <Box
-                bg={"#1F2125"}
-                pl={{ base: "0px", md: "91px", lg: "91px" }}
-                pr={{ base: "0px", md: "91px", lg: "91px" }}
-                pb={{ base: "30px", md: "78px", lg: "78px" }}
-            >
-                <Box
-                    bg={"#242424"}
-                >
-                    <Table size={{ base: "sm", md: "md", lg: "lg" }}>
-                        <Thead>
-                            <Tr>
-                                <Th color={"white"} textAlign={"center"}>Book</Th>
-                                <Th color={"white"} textAlign={"center"}>Title</Th>
-                                <Th color={"white"} textAlign={"center"}>Starting</Th>
-                                <Th color={"white"} textAlign={"center"}>Ending</Th>
-                            </Tr>
-                        </Thead>
-                        <Tbody>
-                            <Tr>
-                                <Td color={"white"} textAlign={"center"}>01</Td>
-                                <Td color={"white"} textAlign={"center"}>Revelation</Td>
-                                <Td color={"white"} textAlign={"center"}>1</Td>
-                                <Td color={"white"} textAlign={"center"}>7</Td>
-                            </Tr>
-                            <Tr>
-                                <Td color={"white"} textAlign={"center"}>02</Td>
-                                <Td color={"white"} textAlign={"center"}>Belief</Td>
-                                <Td color={"white"} textAlign={"center"}>08</Td>
-                                <Td color={"white"} textAlign={"center"}>08</Td>
-                            </Tr>
-                            <Tr>
-                                <Td color={"white"} textAlign={"center"}>03</Td>
-                                <Td color={"white"} textAlign={"center"}>Knowledge</Td>
-                                <Td color={"white"} textAlign={"center"}>594</Td>
-                                <Td color={"white"} textAlign={"center"}>594</Td>
-                            </Tr>
-                            <Tr>
-                                <Td color={"white"} textAlign={"center"}>04</Td>
-                                <Td color={"white"} textAlign={"center"}>Ablutions</Td>
-                                <Td color={"white"} textAlign={"center"}>2474</Td>
-                                <Td color={"white"} textAlign={"center"}>2474</Td>
-                            </Tr>
-                            <Tr>
-                                <Td color={"white"} textAlign={"center"}>04</Td>
-                                <Td color={"white"} textAlign={"center"}>Ablutions</Td>
-                                <Td color={"white"} textAlign={"center"}>34335</Td>
-                                <Td color={"white"} textAlign={"center"}>333446</Td>
-                            </Tr>
-                            <Tr>
-                                <Td color={"white"} textAlign={"center"}>04</Td>
-                                <Td color={"white"} textAlign={"center"}>Dont be sad ok you will never alone </Td>
-                                <Td color={"white"} textAlign={"center"}>34330</Td>
-                                <Td color={"white"} textAlign={"center"}>33460</Td>
-                            </Tr>
-                        </Tbody>
-                    </Table>
-                </Box>
-            </Box> */}
 
             {/* option one */}
             <Box
