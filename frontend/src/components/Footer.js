@@ -1,10 +1,35 @@
 import { LinkIcon } from '@chakra-ui/icons'
 import { Box, Link, Text } from '@chakra-ui/react'
-import React from 'react'
-import { Container, Row, Col } from 'react-bootstrap'
+import React, { useEffect, useState } from 'react'
+import { Row, Col } from 'react-bootstrap'
 import { ChakraProvider } from "@chakra-ui/react"
+import axios from 'axios'
+import Loader from "./Loader"
+import { useNavigate } from "react-router-dom"
 
 const Footer = () => {
+
+  const navigate = useNavigate()
+
+  const [loading, setLoading] = useState(false)
+  const [names, setNames] = useState([])
+
+  useEffect(() => {
+    getnames()
+  }, [])
+
+
+  const getnames = async () => {
+    try {
+      setLoading(true)
+      const { data } = await axios.get("/api/sunna/getCollectionsName")
+      setNames(data)
+      setLoading(false)
+    } catch (error) {
+      console.log("error", error)
+    }
+  }
+
   return (
     <ChakraProvider>
       <footer className='' style={{ backgroundColor: "black", paddingTop: "26px", paddingBottom: "26", paddingLeft: "60px", paddingRight: "60px" }}>
@@ -137,59 +162,24 @@ const Footer = () => {
                       >
                         COLLECTIONS
                       </Text>
-                      <Text
-                        fontFamily={"Inter"}
-                        fontSize={{ base: "13px", md: "15", lg: "15px" }}
-                        color={"white"} fontWeight={400}
-                        width={"130px"}
-                      >
-                        Sahih al-Bukhari
-                      </Text>
-                      <Text
-                        fontFamily={"Inter"}
-                        fontSize={{ base: "13px", md: "15px", lg: "15px" }}
-                        color={"white"}
-                        fontWeight={400}
-                        width={"130px"}
-                      >
-                        Sahih al-Bukhari
-                      </Text>
-                      <Text
-                        fontFamily={"Inter"}
-                        fontSize={{ base: "13px", md: "15px", lg: "15px" }}
-                        color={"white"}
-                        fontWeight={400}
-                        width={"130px"}
-                      >
-                        Sahih al-Bukhari
-                      </Text>
-                      <Text
-                        fontFamily={"Inter"}
-                        fontSize={{ base: "13px", md: "15px", lg: "15px" }}
-                        color={"white"}
-                        fontWeight={400}
-                        width={"130px"}
-                      >
-                        Sahih al-Bukhari
-                      </Text>
-                      <Text
-                        fontFamily={"Inter"}
-                        fontSize={{ base: "13px", md: "15px", lg: "15px" }}
-                        color={"white"}
-                        fontWeight={400}
-                        width={"130px"}
-                      >
-                        Sahih al-Bukhari
-                      </Text>
-                      <Text
-                        fontFamily={"Inter"}
-                        fontSize={{ base: "13px", md: "15px", lg: "15px" }}
-                        fontWeight={400}
-                        width={"130px"}
-                        color={"white"}
-                      >
-                        Sahih al-Bukhari
-                      </Text>
+                      {loading ? <Loader /> : (
+                        names.map((name, index) => (
+                          <Text
+                            _hover={{ color: "grey" }}
+                            onClick={() => {
+                              navigate(`/collections/${name.bookSlug}`)
+                            }}
+                            key={index + 1}
+                            fontFamily={"Inter"}
+                            fontSize={{ base: "13px", md: "15", lg: "15px" }}
+                            color={"white"} fontWeight={400}
+                            width={"130px"}
+                          >
+                            {name.bookName}
+                          </Text>
+                        ))
+                      )}
+
                     </Box>
                   </Col>
 
