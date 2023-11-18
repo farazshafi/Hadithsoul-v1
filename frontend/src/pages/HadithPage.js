@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import GoBackBtn from '../components/GoBackBtn'
 import { Box, Text, useToast } from '@chakra-ui/react'
 import Hadiths from '../components/Hadiths'
-import axios from 'axios'
 import Offline from '../components/Offline'
 import { useNavigate, useParams } from 'react-router-dom'
 import { ChakraProvider } from "@chakra-ui/react"
@@ -34,7 +33,8 @@ const HadithPage = () => {
     const fetchHadith = async () => {
         try {
             setLoadingHadith(true)
-            const { data } = await axios.get(`/api/sunna/getCollectionsHadith/${name}/book/${chapter}/${page}`)
+            // const { data } = await axios.get(`/api/sunna/getCollectionsHadith/${name}/book/${chapter}/${page}`)
+            let data;
             setHadith(data.data)
             setTotalItems(data.totalItems)
             setFrom(data.from)
@@ -60,8 +60,8 @@ const HadithPage = () => {
     const fetchBookname = async () => {
         try {
             setLoading(true)
-            const { data } = await axios.get(`/api/sunna/getCollectionsBook/${name}`)
-            setBookName(data)
+            // const { data } = await axios.get(`/api/sunna/getCollectionsBook/${name}`)
+            // setBookName(data)
             setOffline(false)
             setLoading(false)
         } catch (error) {

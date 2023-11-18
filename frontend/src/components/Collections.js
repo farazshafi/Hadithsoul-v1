@@ -5,7 +5,6 @@ import { useNavigate } from 'react-router-dom'
 import OtherHadith from './OtherHadith'
 import BetweenLine from './BetweenLine'
 import GoBackBtn from './GoBackBtn'
-import axios from "axios"
 import Loader from "../components/Loader"
 import { ChakraProvider } from "@chakra-ui/react"
 import Offline from "../components/Offline"

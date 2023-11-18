@@ -8,7 +8,6 @@ import {
     Td,
     useToast,
 } from '@chakra-ui/react'
-import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import Loader from "../components/Loader"
 import { ArrowRightIcon, Rig } from "@chakra-ui/icons"
@@ -26,46 +25,12 @@ const AboutBook = ({ name }) => {
     const fetchBookname = async () => {
         try {
             setLoading(true)
-            const { data } = await axios.get(`/api/sunna/getCollectionsBook/${name}`)
+            // const { data } = await axios.get(`/api/sunna/getCollectionsBook/${name}`)
 
-            if (name === "sahih-bukhari") {
-                localStorage.setItem("bukhari-books", JSON.stringify(data))
-            }
-
-            if (name === "sahih-muslim") {
-                localStorage.setItem("muslim-books", JSON.stringify(data))
-            }
-
-            if (name === "al-tirmidhi") {
-                localStorage.setItem("tirmidhi-books", JSON.stringify(data))
-            }
-
-            if (name === "abu-dawood") {
-                localStorage.setItem("dawood-books", JSON.stringify(data))
-            }
-
-            if (name === "ibn-e-majah") {
-                localStorage.setItem("majah-books", JSON.stringify(data))
-            }
-
-            if (name === "sunan-nasai") {
-                localStorage.setItem("nasai-books", JSON.stringify(data))
-            }
-
-            if (name === "mishkat") {
-                localStorage.setItem("mishkat-books", JSON.stringify(data))
-            }
-
-            if (name === "musnad-ahmad") {
-                localStorage.setItem("ahmad-books", JSON.stringify(data))
-            }
-
-            if (name === "al-silsila-sahiha") {
-                localStorage.setItem("sahiha-books", JSON.stringify(data))
-            }
+           
 
             setInternet(true)
-            setBookName(data)
+            // setBookName(data)
             setLoading(false)
         } catch (error) {
             setInternet(false)

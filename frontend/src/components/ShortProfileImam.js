@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useLocation, useNavigate, useParams } from 'react-router-dom'
 import { Text, Box, Button, Spinner, useToast } from '@chakra-ui/react'
-import axios from 'axios'
 import Loader from './Loader'
 import Offline from "../components/Offline"
 
@@ -18,47 +17,12 @@ const ShortProfileImam = ({ profilePage, name }) => {
     const getCollectionsDetails = async () => {
         try {
             setLoading(true)
-            const { data } = await axios.get(`/api/sunna/getCollectionsHadith/${name}/book/1/1`)
+            // const { data } = await axios.get(`/api/sunna/getCollectionsHadith/${name}/book/1/1`)
 
-            // if (name === "sahih-bukhari") {
-            //     localStorage.setItem("bukhari-name", JSON.stringify(data))
-            // }
-
-            // if (name === "sahih-muslim") {
-            //     localStorage.setItem("muslim-name", JSON.stringify(data))
-            // }
-
-            // if (name === "al-tirmidhi") {
-            //     localStorage.setItem("tirmidhi-name", JSON.stringify(data))
-            // }
-
-            // if (name === "abu-dawood") {
-            //     localStorage.setItem("dawood-name", JSON.stringify(data))
-            // }
-
-            // if (name === "ibn-e-majah") {
-            //     localStorage.setItem("majah-name", JSON.stringify(data))
-            // }
-
-            // if (name === "sunan-nasai") {
-            //     localStorage.setItem("nasai-name", JSON.stringify(data))
-            // }
-
-            // if (name === "mishkat") {
-            //     localStorage.setItem("mishkat-name", JSON.stringify(data))
-            // }
-
-            // if (name === "musnad-ahmad") {
-            //     localStorage.setItem("ahmad-name", JSON.stringify(data))
-            // }
-
-            // if (name === "al-silsila-sahiha") {
-            //     localStorage.setItem("sahiha-name", JSON.stringify(data))
-            // }
 
             setInternet(true)
-            const writername = data.data[0].book.writerName
-            setWriterName(writername)
+            // const writername = data.data[0].book.writerName
+            // setWriterName(writername)
             setLoading(false)
         } catch (error) {
             setInternet(false)

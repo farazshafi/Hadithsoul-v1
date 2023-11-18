@@ -2,7 +2,6 @@ import { Box, Button, Text, useToast } from '@chakra-ui/react'
 import React, { useEffect, useState } from 'react'
 import GoBackBtn from '../components/GoBackBtn'
 import BetweenLine from '../components/BetweenLine'
-import axios from 'axios'
 import { Col, Row } from 'react-bootstrap'
 import HomePageInput from '../components/HomePageInput'
 import { useNavigate, useParams } from 'react-router-dom'
@@ -29,7 +28,8 @@ const SearchResultPage = () => {
   const fetchSearchResult = async () => {
     try {
       setLoading(true)
-      const { data } = await axios.get(`/api/sunna/getSearchedHadith/${keyword}/${page}`)
+      // const { data } = await axios.get(`/api/sunna/getSearchedHadith/${keyword}/${page}`)
+      let data;
       setBookName(data.hadith)
       const totalItems = data.totalItems
       const itemsPerPage = 25

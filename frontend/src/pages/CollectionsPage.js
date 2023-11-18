@@ -4,7 +4,6 @@ import BetweenLine from '../components/BetweenLine'
 import AboutBook from '../components/AboutBook'
 import ShortProfileImam from '../components/ShortProfileImam'
 import { useParams } from 'react-router-dom'
-import axios from 'axios'
 import { ChakraProvider } from "@chakra-ui/react"
 
 

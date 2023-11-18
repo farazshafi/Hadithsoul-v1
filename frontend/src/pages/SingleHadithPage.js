@@ -1,6 +1,5 @@
 import { Box, Input, Table, Tbody, Td, Text, Th, Thead, Tr, useToast, Button, ChakraProvider } from '@chakra-ui/react'
 import React, { useEffect, useState } from 'react'
-import axios from 'axios'
 import Loader from '../components/Loader'
 import BetweenLine from '../components/BetweenLine'
 import { useNavigate, useParams } from 'react-router-dom'
@@ -27,9 +26,9 @@ const SingleHadithPage = () => {
   const fetchHadith = async () => {
     try {
       setLoading(true)
-      const { data } = await axios.get(`/api/sunna/getHadithByNumber/${name}/${chapter}/${hadithNum}`)
-      setResult(data)
-      console.log(data)
+      // const { data } = await axios.get(`/api/sunna/getHadithByNumber/${name}/${chapter}/${hadithNum}`)
+      // setResult(data)
+      // console.log(data)
       setLoading(false)
     } catch (error) {
       console.log(error.data)
@@ -52,9 +51,9 @@ const SingleHadithPage = () => {
     } else {
       try {
         setLoading(true)
-        const { data } = await axios.get(`/api/sunna/getHadithByNumber/${name}/${chapter}/${hadithNumber}`)
-        setResult(data)
-        console.log(data)
+        // const { data } = await axios.get(`/api/sunna/getHadithByNumber/${name}/${chapter}/${hadithNumber}`)
+        // setResult(data)
+        // console.log(data)
         setLoading(false)
       } catch (error) {
         console.log(error.data)

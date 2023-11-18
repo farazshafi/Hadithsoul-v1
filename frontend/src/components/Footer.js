@@ -3,7 +3,6 @@ import { Box, Link, Text } from '@chakra-ui/react'
 import React, { useEffect, useState } from 'react'
 import { Row, Col } from 'react-bootstrap'
 import { ChakraProvider } from "@chakra-ui/react"
-import axios from 'axios'
 import Loader from "./Loader"
 import { useNavigate } from "react-router-dom"
 
@@ -28,8 +27,8 @@ const Footer = () => {
   const getnames = async () => {
     try {
       setLoading(true)
-      const { data } = await axios.get("/api/sunna/getCollectionsName")
-      setNames(data)
+      // const { data } = await axios.get("/api/sunna/getCollectionsName")
+      // setNames(data)
       setLoading(false)
     } catch (error) {
       console.log("error", error)
