@@ -3,6 +3,8 @@ import { useLocation, useNavigate, useParams } from 'react-router-dom'
 import { Text, Box, Button, Spinner, useToast } from '@chakra-ui/react'
 import Loader from './Loader'
 import Offline from "../components/Offline"
+import aboutBookhari from "../data/imam details/bookhariDetails"
+import aboutMuslim from "../data/imam details/muslimDetails"
 
 
 const ShortProfileImam = ({ profilePage, name }) => {
@@ -17,12 +19,15 @@ const ShortProfileImam = ({ profilePage, name }) => {
     const getCollectionsDetails = async () => {
         try {
             setLoading(true)
-            // const { data } = await axios.get(`/api/sunna/getCollectionsHadith/${name}/book/1/1`)
-
-
             setInternet(true)
-            // const writername = data.data[0].book.writerName
-            // setWriterName(writername)
+            if (name === "bukhari") {
+                const writer = aboutBookhari.collection[0].title
+                setWriterName(writer)
+            }
+            if (name === "muslim") {
+                const writer = aboutMuslim.collection[0].title
+                setWriterName(writer)
+            }
             setLoading(false)
         } catch (error) {
             setInternet(false)

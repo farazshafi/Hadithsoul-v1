@@ -24,7 +24,6 @@ const Collections = ({ directcall }) => {
             setLoading(true)
             setInternet(true)
             const imamsData = imams.data
-            console.log(imamsData)
             setCollections(imamsData)
             setLoading(false)
         } catch (error) {
@@ -81,7 +80,7 @@ const Collections = ({ directcall }) => {
                                         data-aos-duration="900"
                                         sm={6} md={4}>
                                         <Button
-                                            onClick={() => navigate(`/collections/${imam.bookSlug}`)}
+                                            onClick={() => navigate(`/collections/${imam.name}`)}
                                             mt={"15px"}
                                             width={"100%"}
                                             _hover={{ bgColor: "#272F33", color: "white" }}

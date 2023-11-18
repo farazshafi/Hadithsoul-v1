@@ -28,7 +28,7 @@ const SingleHadithPage = () => {
       setLoading(true)
       // const { data } = await axios.get(`/api/sunna/getHadithByNumber/${name}/${chapter}/${hadithNum}`)
       // setResult(data)
-      // console.log(data)
+      // (data)
       setLoading(false)
     } catch (error) {
       console.log(error.data)
@@ -53,7 +53,7 @@ const SingleHadithPage = () => {
         setLoading(true)
         // const { data } = await axios.get(`/api/sunna/getHadithByNumber/${name}/${chapter}/${hadithNumber}`)
         // setResult(data)
-        // console.log(data)
+        // (data)
         setLoading(false)
       } catch (error) {
         console.log(error.data)

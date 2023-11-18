@@ -35,7 +35,6 @@ const SearchResultPage = () => {
       const itemsPerPage = 25
       const totalPages = Math.ceil(totalItems / itemsPerPage);
       setLastPage(totalPages);
-      console.log("data Recived successfully")
       setHadith(true)
       setLoading(false)
     } catch (error) {
@@ -56,7 +55,6 @@ const SearchResultPage = () => {
   }, [keyword]);
 
   useEffect(() => {
-    console.log(page)
     const element = document.getElementById('search-result');
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
