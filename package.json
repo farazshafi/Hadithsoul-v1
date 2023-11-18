@@ -1,5 +1,4 @@
 {
-  "homepage": "https://farazshafi.github.io/Quranicsoul/",
   "name": "Hadithsoul",
   "version": "1.0.0",
   "description": "way to jannah",
@@ -9,7 +8,6 @@
     "start": "nodemon backend/server",
     "build": "npm install && npm install --prefix frontend && npm run build --prefix frontend",
     "server": "nodemon backend/server",
-    "deploy": "gh-pages -d build",
     "client": "npm start --prefix frontend",
     "dev": "concurrently \"npm run server\" \"npm run client\""
   },
