@@ -9,6 +9,7 @@ import axios from "axios"
 import Loader from "../components/Loader"
 import { ChakraProvider } from "@chakra-ui/react"
 import Offline from "../components/Offline"
+import imams from '../data/collections'
 
 
 const Collections = ({ directcall }) => {
@@ -22,11 +23,10 @@ const Collections = ({ directcall }) => {
     const getCollectionsName = async () => {
         try {
             setLoading(true)
-            const { data } = await axios.get("/api/sunna/getCollectionsName")
             setInternet(true)
-            setCollections(data)
-            // Save to localStorage for future visits
-            localStorage.setItem('collections', JSON.stringify(data))
+            const imamsData = imams.data
+            console.log(imamsData)
+            setCollections(imamsData)
             setLoading(false)
         } catch (error) {
             setInternet(false)
@@ -43,14 +43,7 @@ const Collections = ({ directcall }) => {
     }
 
     useEffect(() => {
-        // Check if data is already present in localStorage
-        const storedCollections = localStorage.getItem('collections');
-        if (storedCollections) {
-            setCollections(JSON.parse(storedCollections));
-        } else {
-            // If not, make the API call
-            getCollectionsName();
-        }
+        getCollectionsName()
     }, []);
     
     return (
@@ -97,7 +90,7 @@ const Collections = ({ directcall }) => {
                                             bgColor={"#D9D9D9"}
                                             variant={"solid"}
                                         >
-                                            {imam.bookName}
+                                            {imam.name}
                                         </Button>
                                     </Col>
                                 ))
