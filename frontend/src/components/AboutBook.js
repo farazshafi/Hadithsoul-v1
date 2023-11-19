@@ -16,6 +16,21 @@ import Offline from "../components/Offline"
 import booksOfBukhari from "../data/book chapters/bukhariBookChapters"
 import booksOfMuslim from "../data/book chapters/muslimBookChapters"
 import booksOfMalik from "../data/book chapters/malikBookChapters"
+import booksOfNasai from "../data/book chapters/nasaiBookChapter"
+import booksOfAbudawd from "../data/book chapters/abudawudBookChapter"
+import booksOfTirmidhi from "../data/book chapters/tirmidhiBookChapter"
+import booksOfIbnmajah from "../data/book chapters/ibnmajahBookChapter"
+import booksOfAhmad from "../data/book chapters/ahmadBookChapter"
+import booksOfForty from "../data/book chapters/fortyBookChapter"
+import booksOfRiyadussalihin from "../data/book chapters/riyadussalihinBookChapter"
+import booksOfMishkat from "../data/book chapters/mishkatBookChapter"
+import booksOfAdab from "../data/book chapters/adabBookChapter"
+import booksOfShamail from "../data/book chapters/shamailBookChapters"
+import booksOfHisn from "../data/book chapters/hisnBookChapters"
+import booksOfVirtues from "../data/book chapters/virtuesBookChapter"
+import booksOfbulugh from '../data/book chapters/bulughBookChapters'
+// import booksOfNawawi40 from "../data/book chapters/n"
+// import booksOfDarimi from "../data/book chapters/"
 
 const AboutBook = ({ name }) => {
     const [bookName, setBookName] = useState([])
@@ -23,23 +38,35 @@ const AboutBook = ({ name }) => {
     const [internet, setInternet] = useState(true)
     const navigate = useNavigate()
 
+    const bookData = {
+        bukhari: booksOfBukhari.data,
+        muslim: booksOfMuslim.data,
+        malik: booksOfMalik.data,
+        nasai: booksOfNasai.data,
+        abudawud: booksOfAbudawd.data,
+        tirmidhi: booksOfTirmidhi.data,
+        ibnmajah: booksOfIbnmajah.data,
+        ahmad: booksOfAhmad.data,
+        forty: booksOfForty.data,
+        riyadussalihin: booksOfRiyadussalihin.data,
+        mishkat: booksOfMishkat.data,
+        adab: booksOfAdab.data,
+        shamail: booksOfShamail.data,
+        bulugh: booksOfbulugh.data,
+        hisn: booksOfHisn.data,
+        virtues: booksOfVirtues.data,
+        // nawawi40: booksOfNawawi40.data,
+        // darimi: booksOfDarimi.data,
 
+    };
 
     const fetchBookname = async () => {
         try {
             setLoading(true)
             setInternet(true)
-            if (name === "bukhari") {
-                const bookhariData = booksOfBukhari.data
-                setBookName(bookhariData)
-            }
-            if (name === "muslim") {
-                const muslimData = booksOfMuslim.data
-                setBookName(muslimData)
-            }
-            if (name === "malik") {
-                const malikData = booksOfMalik.data
-                setBookName(malikData)
+            const selectedBookData = bookData[name]
+            if (selectedBookData) {
+                setBookName(selectedBookData);
             }
             setLoading(false)
         } catch (error) {
