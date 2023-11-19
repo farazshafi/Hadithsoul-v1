@@ -15,12 +15,15 @@ import { useNavigate } from 'react-router-dom'
 import Offline from "../components/Offline"
 import booksOfBukhari from "../data/book chapters/bukhariBookChapters"
 import booksOfMuslim from "../data/book chapters/muslimBookChapters"
+import booksOfMalik from "../data/book chapters/malikBookChapters"
 
 const AboutBook = ({ name }) => {
     const [bookName, setBookName] = useState([])
     const [loading, setLoading] = useState(false)
     const [internet, setInternet] = useState(true)
     const navigate = useNavigate()
+
+
 
     const fetchBookname = async () => {
         try {
@@ -32,7 +35,11 @@ const AboutBook = ({ name }) => {
             }
             if (name === "muslim") {
                 const muslimData = booksOfMuslim.data
-                setBookName(muslimData  )
+                setBookName(muslimData)
+            }
+            if (name === "malik") {
+                const malikData = booksOfMalik.data
+                setBookName(malikData)
             }
             setLoading(false)
         } catch (error) {
@@ -43,6 +50,7 @@ const AboutBook = ({ name }) => {
     }
 
     useEffect(() => {
+
         fetchBookname()
     }, []);
 
