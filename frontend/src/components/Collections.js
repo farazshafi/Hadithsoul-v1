@@ -88,7 +88,7 @@ const Collections = ({ directcall }) => {
                                             bgColor={"#D9D9D9"}
                                             variant={"solid"}
                                         >
-                                            {imam.name}
+                                            {imam.collection[0].title}
                                         </Button>
                                     </Col>
                                 ))

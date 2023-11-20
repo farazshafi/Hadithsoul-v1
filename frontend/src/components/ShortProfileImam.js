@@ -1,10 +1,25 @@
 import React, { useEffect, useState } from 'react'
-import { useLocation, useNavigate, useParams } from 'react-router-dom'
-import { Text, Box, Button, Spinner, useToast } from '@chakra-ui/react'
+import { Text, Box, Button,  useToast } from '@chakra-ui/react'
 import Loader from './Loader'
 import Offline from "../components/Offline"
 import aboutBookhari from "../data/imam details/bookhariDetails"
 import aboutMuslim from "../data/imam details/muslimDetails"
+import aboutNasai from "../data/imam details/nasaidDetails"
+import aboutAbudawud from "../data/imam details/abudawudDetails"
+import aboutTirmidhi from "../data/imam details/tirmidhiDetails"
+import aboutIbnmajah from "../data/imam details/ibnmajahDetails"
+import aboutAhmad from "../data/imam details/ahmadDetails"
+import aboutRiyadussalihin from "../data/imam details/riyadussalihinDetails"
+import aboutMishkat from "../data/imam details/mishkatDetails"
+import aboutAdab from "../data/imam details/adabDetails"
+import aboutShamail from "../data/imam details/shamailDetails"
+import aboutBulugh from "../data/imam details/bulughDetails"
+import aboutHisn from "../data/imam details/hisnDetails"
+import aboutVirtues from "../data/imam details/virtuesDetails"
+import aboutDarimi from '../data/imam details/darimiDetails'
+import aboutNawawi from '../data/imam details/nawawiDetails'
+import aboutForty from '../data/imam details/fortyDetails'
+import aboutMalik from '../data/imam details/malikDetails'
 
 
 const ShortProfileImam = ({ profilePage, name }) => {
@@ -15,18 +30,34 @@ const ShortProfileImam = ({ profilePage, name }) => {
 
     const toast = useToast()
 
+    const aboutImams = {
+        bukhari: aboutBookhari.collection[0].title,
+        muslim: aboutMuslim.collection[0].title,
+        malik: aboutMalik.collection[0].title,
+        nasai: aboutNasai.collection[0].title,
+        abudawud: aboutAbudawud.collection[0].title,
+        tirmidhi: aboutTirmidhi.collection[0].title,
+        ibnmajah: aboutIbnmajah.collection[0].title,
+        ahmad: aboutAhmad.collection[0].title,
+        forty: aboutForty.collection[0].title,
+        riyadussalihin: aboutRiyadussalihin.collection[0].title,
+        mishkat: aboutMishkat.collection[0].title,
+        adab: aboutAdab.collection[0].title,
+        shamail: aboutShamail.collection[0].title,
+        bulugh: aboutBulugh.collection[0].title,
+        hisn: aboutHisn.collection[0].title,
+        virtues: aboutVirtues.collection[0].title,
+        darimi: aboutDarimi.collection[0].title,
+        nawawi40: aboutNawawi.collection[0].title,
+    }
 
     const getCollectionsDetails = async () => {
         try {
             setLoading(true)
             setInternet(true)
-            if (name === "bukhari") {
-                const writer = aboutBookhari.collection[0].title
-                setWriterName(writer)
-            }
-            if (name === "muslim") {
-                const writer = aboutMuslim.collection[0].title
-                setWriterName(writer)
+            const selectedData = aboutImams[name]
+            if(selectedData){
+                setWriterName(selectedData)
             }
             setLoading(false)
         } catch (error) {

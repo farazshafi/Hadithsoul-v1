@@ -29,8 +29,8 @@ import booksOfShamail from "../data/book chapters/shamailBookChapters"
 import booksOfHisn from "../data/book chapters/hisnBookChapters"
 import booksOfVirtues from "../data/book chapters/virtuesBookChapter"
 import booksOfbulugh from '../data/book chapters/bulughBookChapters'
-// import booksOfNawawi40 from "../data/book chapters/n"
-// import booksOfDarimi from "../data/book chapters/"
+import booksOfNawawi from "../data/book chapters/nawawiBookChapter"
+import booksOfDarimi from "../data/book chapters/darimiBookChapter"
 
 const AboutBook = ({ name }) => {
     const [bookName, setBookName] = useState([])
@@ -55,8 +55,8 @@ const AboutBook = ({ name }) => {
         bulugh: booksOfbulugh.data,
         hisn: booksOfHisn.data,
         virtues: booksOfVirtues.data,
-        // nawawi40: booksOfNawawi40.data,
-        // darimi: booksOfDarimi.data,
+        nawawi40: booksOfNawawi.data,
+        darimi: booksOfDarimi.data,
 
     };
 
