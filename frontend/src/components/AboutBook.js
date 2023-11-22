@@ -111,7 +111,7 @@ const AboutBook = ({ name }) => {
                                     <Tbody>
                                         {bookName && bookName.map((singleBook, index) => (
                                             <Tr key={index + 1} cursor={"pointer"} onClick={() => {
-                                                // navigate(`/collections/${name}/book/${book.chapterEnglish}/${book.chapterNumber}`)
+                                                navigate(`/collections/${name}/book/${singleBook.book[0].name}/${singleBook.bookNumber}`)
                                             }}>
                                                 <Td key={index + 2} color={"white"} textAlign={""}>{singleBook.bookNumber}</Td>
                                                 <Td key={index + 3} color={"white"} textAlign={""}>{singleBook.book[0].name}</Td>

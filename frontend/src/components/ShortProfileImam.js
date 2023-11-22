@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Text, Box, Button,  useToast } from '@chakra-ui/react'
+import { Text, Box, Button, useToast } from '@chakra-ui/react'
 import Loader from './Loader'
 import Offline from "../components/Offline"
 import aboutBookhari from "../data/imam details/bookhariDetails"
@@ -56,7 +56,7 @@ const ShortProfileImam = ({ profilePage, name }) => {
             setLoading(true)
             setInternet(true)
             const selectedData = aboutImams[name]
-            if(selectedData){
+            if (selectedData) {
                 setWriterName(selectedData)
             }
             setLoading(false)
@@ -75,69 +75,6 @@ const ShortProfileImam = ({ profilePage, name }) => {
     }
 
     useEffect(() => {
-        // const storedBukhariName = JSON.parse(localStorage.getItem("bukhari-name"))
-        // const storedMuslimName = JSON.parse(localStorage.getItem("muslim-name"))
-        // const storedTirmidhiName = JSON.parse(localStorage.getItem("tirmidhi-name"))
-        // const storedDawoodName = JSON.parse(localStorage.getItem("dawood-name"))
-        // const storedMajahName = JSON.parse(localStorage.getItem("majah-name"))
-        // const storedNasaiName = JSON.parse(localStorage.getItem("nasai-name"))
-        // const storedMishkatName = JSON.parse(localStorage.getItem("mishkat-name"))
-        // const storedAhmadName = JSON.parse(localStorage.getItem("ahmad-name"))
-        // const storedSahihaName = JSON.parse(localStorage.getItem("sahiha-name"))
-
-        // if (name === "sahih-bukhari") {
-        //     if (storedBukhariName) {
-        //         setWriterName(storedBukhariName)
-        //     } else getCollectionsDetails()
-        // }
-
-        // if (name === "sahih-muslim") {
-        //     if (storedMuslimName) {
-        //         setWriterName(storedMuslimName)
-        //     } else getCollectionsDetails()
-        // }
-
-        // if (name === "al-tirmidhi") {
-        //     if (storedTirmidhiName) {
-        //         setWriterName(storedTirmidhiName)
-        //     } else getCollectionsDetails()
-        // }
-
-        // if (name === "abu-dawood") {
-        //     if (storedDawoodName) {
-        //         setWriterName(storedDawoodName)
-        //     } else getCollectionsDetails()
-        // }
-
-        // if (name === "ibn-e-majah") {
-        //     if (storedMajahName) {
-        //         setWriterName(storedMajahName)
-        //     } else getCollectionsDetails()
-        // }
-
-        // if (name === "sunan-nasai") {
-        //     if (storedNasaiName) {
-        //         setWriterName(storedNasaiName)
-        //     } else getCollectionsDetails()
-        // }
-
-        // if (name === "mishkat") {
-        //     if (storedMishkatName) {
-        //         setWriterName(storedMishkatName)
-        //     } else getCollectionsDetails()
-        // }
-
-        // if (name === "musnad-ahmad") {
-        //     if (storedAhmadName) {
-        //         setWriterName(storedAhmadName)
-        //     } else getCollectionsDetails()
-        // }
-
-        // if (name === "al-silsila-sahiha") {
-        //     if (storedSahihaName) {
-        //         setWriterName(storedSahihaName)
-        //     } else getCollectionsDetails()
-        // }
         getCollectionsDetails()
     }, []);
 

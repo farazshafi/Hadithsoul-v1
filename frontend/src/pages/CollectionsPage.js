@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import GoBackBtn from '../components/GoBackBtn'
 import BetweenLine from '../components/BetweenLine'
 import AboutBook from '../components/AboutBook'

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Col, Row } from 'react-bootstrap'
 import BetweenLine from '../components/BetweenLine'
 import Loader from './Loader'
@@ -19,30 +19,34 @@ import {
 import { useNavigate } from 'react-router-dom'
 
 
-const Hadiths = ({ data, loading, bookname, chapter, loadingHadith, from, to, name }) => {
+const Hadiths = ({ data, loading, bookname, chapter, loadingHadith, from, to, name, total }) => {
     const toast = useToast()
     const navigate = useNavigate()
-
     // useState goes here
-    const [hadithNum, setHadithNum] = useState()
+    // const [hadithNum, setHadithNum] = useState()
 
 
     // Funtctions goes here
-    const handleHadithSearch = async () => {
-        if (hadithNum > to || hadithNum < from || hadithNum == undefined) {
-            toast({
-                title: `Not Found ${hadithNum} Hadith`,
-                description: `Enter between ${from}- ${to}`,
-                status: 'error',
-                duration: 5000,
-                position: "top-left",
-                isClosable: true,
-            })
-        } else {
-            navigate(`/hadithpage/${name}/${chapter}/${hadithNum}/${from}/${to}/${bookname}`)
-        }
+    // const handleHadithSearch = async () => {
+    //     if (hadithNum > to || hadithNum < from || hadithNum == undefined) {
+    //         toast({
+    //             title: `Not Found ${hadithNum} Hadith`,
+    //             description: `Enter between ${from}- ${to}`,
+    //             status: 'error',
+    //             duration: 5000,
+    //             position: "top-left",
+    //             isClosable: true,
+    //         })
+    //     } else {
+    //         navigate(`/hadithpage/${name}/${chapter}/${hadithNum}/${from}/${to}/${bookname}`)
+    //     }
 
-    }
+    // }
+
+    useEffect(() => {
+        console.log("bookname",bookname)
+    }, [])
+    
     return (
         <>
             {/* Book name */}
@@ -80,18 +84,18 @@ const Hadiths = ({ data, loading, bookname, chapter, loadingHadith, from, to, na
                                 ) : (<>
                                     <Thead>
                                         <Tr>
-                                            <Th color={"white"} textAlign={""}>From</Th>
-                                            <Th color={"white"} textAlign={""}>TO</Th>
+                                            <Th color={"white"} textAlign={""}>Total Hadiths</Th>
+                                            {/* <Th color={"white"} textAlign={""}>TO</Th> */}
                                         </Tr>
                                     </Thead>
                                     <Tbody>
-                                        <Td color={"white"} textAlign={""}>{from}</Td>
-                                        <Td color={"white"} textAlign={""}>{to}</Td>
+                                        <Td color={"white"} textAlign={"center"}>{total}</Td>
+                                        {/* <Td color={"white"} textAlign={""}>{to}</Td> */}
                                     </Tbody>
                                 </>)}
 
                             </Table>
-                            <Box>
+                            {/* <Box>
                                 <Input
                                     onChange={(e) => setHadithNum(e.target.value)}
                                     value={hadithNum}
@@ -111,7 +115,7 @@ const Hadiths = ({ data, loading, bookname, chapter, loadingHadith, from, to, na
                                 >
                                     Search
                                 </Button>
-                            </Box>
+                            </Box> */}
                         </Box>
                     </Box>
                 </Box>
@@ -140,7 +144,7 @@ const Hadiths = ({ data, loading, bookname, chapter, loadingHadith, from, to, na
                                 fontFamily={"Istok Web"}
                                 fontWeight={700}
                             >
-                                CHAPTER {item.hadithNumber}
+                                CHAPTER {item.id}
                             </Text>
                             <Text
                                 color={"white"}
@@ -165,39 +169,42 @@ const Hadiths = ({ data, loading, bookname, chapter, loadingHadith, from, to, na
                                 textAlign={"end"}
                                 color={"white"}
                             >
-                                <ReadMore text={item.hadithArabic} />
+                                <ReadMore text={item.arabic} />
                             </Text>
                         </Box>
                         {/* English Hadith */}
-                        <Box
-                            data-aos="fade-up"
-                            data-aos-duration="900"
-                            bg={"#FFF"}
-                            borderRadius={"0px 40px 40px 0px"}
-                            pl={{ base: "10px", md: "20px", lg: "30px" }}
-                            pr={{ base: "4%", md: "15%", lg: "15%" }}
-                            pt={{ base: "10px", md: "14px", lg: "18px" }}
-                            pb={{ base: "5px", md: "14px", lg: "18px" }}
-                            mb={{ base: "15px", md: "20px", lg: "25px" }}
-                        >
-                            <Text
-                                color={"black"}
-                                fontSize={{ lg: "20px", md: "18px", base: "15px" }}
-                                fontFamily={"Istok Web"}
-                                fontWeight={700}
-                                mb={{ base: "10px", lg: "15px", md: "8px" }}
+                        {item.english.text && (
+                            <Box
+                                data-aos="fade-up"
+                                data-aos-duration="900"
+                                bg={"#FFF"}
+                                borderRadius={"0px 40px 40px 0px"}
+                                pl={{ base: "10px", md: "20px", lg: "30px" }}
+                                pr={{ base: "4%", md: "15%", lg: "15%" }}
+                                pt={{ base: "10px", md: "14px", lg: "18px" }}
+                                pb={{ base: "5px", md: "14px", lg: "18px" }}
+                                mb={{ base: "15px", md: "20px", lg: "25px" }}
                             >
-                                {item.englishNarrator}
-                            </Text>
-                            <Text
-                                color={"black"}
-                                fontSize={{ base: "13px", md: "14", lg: "15px" }}
-                                fontFamily={"Inter"}
-                                fontWeight={400}
-                            >
-                                <ReadMore text={item.hadithEnglish} />
-                            </Text>
-                        </Box>
+                                <Text
+                                    color={"black"}
+                                    fontSize={{ lg: "20px", md: "18px", base: "15px" }}
+                                    fontFamily={"Istok Web"}
+                                    fontWeight={700}
+                                    mb={{ base: "10px", lg: "15px", md: "8px" }}
+                                >
+                                    {item.english.narrator}
+                                </Text>
+                                <Text
+                                    color={"black"}
+                                    fontSize={{ base: "13px", md: "14", lg: "15px" }}
+                                    fontFamily={"Inter"}
+                                    fontWeight={400}
+                                >
+                                    <ReadMore text={item.english.text} />
+                                </Text>
+                            </Box>
+                        )}
+
                         {/* Reference and save to bookmark btn */}
                         <Box
                             data-aos="fade-up"
@@ -206,17 +213,17 @@ const Hadiths = ({ data, loading, bookname, chapter, loadingHadith, from, to, na
                             <Row>
                                 <Col sm={12} md={6}>
                                     <Box>
-                                        <Text
+                                        {/* <Text
                                             color={"white"}
                                         >
-                                            <text style={{ fontFamily: "Istok Web", fontSize: { lg: "18px", md: "", base: "5px" } }}>Reference :</text>
+                                            <text style={{ fontFamily: "Istok Web", fontSize: { lg: "18px", md: "", base: "3px" } }}>Reference :</text>
                                             <text style={{ fontFamily: "Inter", fontSize: { lg: "15px", md: "13px", base: "10px" }, fontWeight: "400" }}>{item.bookSlug}-{item.hadithNumber}</text>
-                                        </Text>
+                                        </Text> */}
                                         <Text
                                             color={"white"}
                                         >
                                             <text style={{ fontFamily: "Istok Web", fontSize: { lg: "18px", md: "", base: "5px" } }}>In-book reference : </text>
-                                            <text style={{ fontFamily: "Inter", fontSize: { lg: "15px", md: "13px", base: "10px" } }}>book {chapter} , Hadith {index + 1}</text>
+                                            <text style={{ fontFamily: "Inter", fontSize: { lg: "15px", md: "13px", base: "5px" } }}>book {chapter} , Hadith {index + 1}</text>
                                         </Text>
                                     </Box>
                                 </Col>

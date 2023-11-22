@@ -111,6 +111,22 @@ const booksOfahmad = {
       "hadithStartNumber": 1405,
       "hadithEndNumber": 1438,
       "numberOfHadith": 31
+    },
+    {
+      "bookNumber": "8",
+      "book": [
+        {
+          "lang": "en",
+          "name": "حَدِيثُ أَبِي رِمْثَةَ عَنْ النَّبِيَّ رَضِيَ اللَّهُ عَنْهُ"
+        },
+        {
+          "lang": "ar",
+          "name": "مُسْنَدُ الزُّبَيْرِ بْنِ الْعَوَّامِ رَضِيَ اللَّهُ عَنْهُ"
+        }
+      ],
+      "hadithStartNumber": 1405,
+      "hadithEndNumber": 1438,
+      "numberOfHadith": 31
     }
   ],
   "total": 7,
